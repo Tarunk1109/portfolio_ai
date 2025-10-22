@@ -1,0 +1,204 @@
+{
+  "name": "Tarun Karnati",
+  "title": "Information Technology Student | Full Stack Developer | Java & AI Enthusiast",
+  "summary": "Tarun Karnati is an Indian student pursuing the Information Technology Solutions program at Humber College, Canada, with a strong foundation in Java, Web Development, Databases, and AI integration. He focuses on building efficient, scalable, and user-friendly software systems and has hands-on experience with full-stack projects, IoT devices, and data analytics.",
+  
+  "education": [
+    {
+      "program": "Postgraduate Certificate in Information Technology Solutions",
+      "institution": "Humber College, Toronto, Canada",
+      "status": "Ongoing",
+      "semester": "Third semester",
+      "duration": "2025 – Present",
+      "achievements": [
+        "Dean’s Honour List (Semester 1 and 2)",
+        "High academic standing with strong performance in programming and systems courses"
+      ]
+    },
+    {
+      "program": "Bachelor of Technology in Computer Science and Engineering (Data Science Specialization)",
+      "institution": "SRK Institute of Technology, India",
+      "duration": "2020 – 2024",
+      "highlights": [
+        "Graduated with Data Science specialization",
+        "Developed multiple academic projects and prototypes",
+        "Built strong foundation in algorithms, data structures, and software engineering principles"
+      ]
+    }
+  ],
+  
+  "skills": {
+    "programmingLanguages": ["Java", "JavaScript", "HTML", "CSS", "SQL", "Python", "C", "R"],
+    "frameworksAndLibraries": ["React.js", "Spring Boot", "Node.js", "Express.js", "JavaFX", "Bootstrap", "TensorFlow", "PyTorch", "NLTK", "Scikit-learn"],
+    "databases": ["MySQL", "MongoDB", "SQL Server", "PostgreSQL"],
+    "toolsAndPlatforms": ["IntelliJ IDEA", "VS Code", "GitHub", "Postman", "MySQL Workbench", "Eclipse", "Render", "Vercel", "Docker", "Tableau", "PowerBI"],
+    "cloudAndAI": ["OpenAI API Integration", "LangChain", "Embeddings (RAG)", "AWS Cloud Architecture", "tawk.to Chat Integration"],
+    "concepts": [
+      "Object-Oriented Programming (OOP)",
+      "RESTful API Development",
+      "Full-Stack Web Application Design",
+      "Database Management and Optimization",
+      "Data Structures and Algorithms",
+      "Backend-Frontend Integration",
+      "AI & NLP Chatbot Development",
+      "Semantic Search / Embeddings",
+      "Version Control and Deployment",
+      "IoT Device Programming",
+      "Data Analytics & Visualization"
+    ]
+  },
+
+  "projects": [
+    {
+      "name": "Perkpal",
+      "description": "A personalized offers and coupon platform that provides exclusive deals to specific communities such as students, seniors, LGBTQ+, and other groups.",
+      "tagline": "Your go-to for personalized discounts",
+      "frontend": "HTML, CSS, JavaScript",
+      "backend": "Spring Boot 3.4, Java 17, MongoDB",
+      "features": [
+        "User registration and login with validation",
+        "Dynamic categorization based on registration data (students, seniors, etc.)",
+        "Personalized offer recommendations",
+        "Modern, responsive, minimalistic design",
+        "Interactive forms for user data collection",
+        "Chatbot integration using tawk.to and OpenAI-based LLM plans",
+        "Error handling with loading spinners and user-friendly messages"
+      ],
+      "repository": "https://github.com/Tarunk1109/PerkPal",
+      "goal": "To demonstrate strong full-stack skills and create a real-world system with clean, functional design."
+    },
+    {
+      "name": "IoT Women's Safety Device",
+      "description": "An embedded systems project where Tarun led a small team to build a tracking and alert system.",
+      "technologies": ["Raspberry Pi Pico", "Python", "Embedded Systems"],
+      "goal": "To design a real-time safety device that tracks user location and sends alerts during emergencies."
+    },
+    {
+      "name": "Public Relationships using NLP",
+      "description": "A Natural Language Processing (NLP) and Machine Learning project analyzing sentiment from product reviews to provide business insights.",
+      "technologies": ["Python", "NLP", "Scikit-learn", "Text Mining"],
+      "publicationLink": "http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210",
+      "goal": "To apply NLP/ML techniques for real-world sentiment analysis and extract actionable business insights."
+    },
+    {
+      "name": "Café Management System",
+      "description": "JavaFX-based management system for a café with role-based access and database connectivity.",
+      "technologies": ["Java", "JDBC", "MySQL", "JavaFX"],
+      "roles": ["Admin", "Staff", "Customer"],
+      "features": [
+        "Role-based authentication and authorization",
+        "Menu management",
+        "Order placement and billing system",
+        "Transaction and sales tracking",
+        "Data structure implementation (ArrayList, HashMap, TreeSet)"
+      ],
+      "goal": "To implement advanced Java programming concepts and database integration in a real-world project."
+    },
+    {
+      "name": "Bank Management Software (ITC5102 Group Project)",
+      "description": "Collaborative Java-based project simulating banking functionalities.",
+      "technologies": ["Java", "JDBC", "MySQL"],
+      "features": [
+        "Account creation, deposits, withdrawals, and transfers",
+        "Transaction logging",
+        "User authentication",
+        "Team collaboration and project management using Git"
+      ],
+      "goal": "To strengthen teamwork and technical design abilities through a functional financial application."
+    }
+  ],
+
+  "certifications": [
+    {
+      "name": "Docker Foundations Professional",
+      "issuer": "Docker & LinkedIn",
+      "link": "https://www.linkedin.com/learning/certificates/eb103cef361f6d528bfa297c6d730fb6579041cb4dc626e91377a9269aca1e39?u=2218586"
+    },
+    {
+      "name": "Career Essentials in Software Development",
+      "issuer": "Microsoft & LinkedIn",
+      "link": "https://www.linkedin.com/learning/certificates/0a5fb95f1f2ab199e4ba32cbd91c56f8d8ba092a44026604ef8aa4b12d11a428?u=2218586"
+    },
+    {
+      "name": "PCAP: Programming Essentials in Python",
+      "issuer": "Cisco Networking Academy",
+      "link": ""
+    },
+    {
+      "name": "AI for Everyone",
+      "issuer": "Coursera",
+      "link": "https://www.coursera.org/account/accomplishments/verify/DHL7Z3VDD96C"
+    }
+  ],
+
+  "publications": [
+    {
+      "title": "Fabric Defect Segmentation (DCNN)",
+      "publisher": "Springer IPDIMS 2023 Conference",
+      "year": 2023
+    },
+    {
+      "title": "Public Relationships using NLP and ML",
+      "publisher": "IJCRT",
+      "year": 2024,
+      "link": "http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210"
+    }
+  ],
+
+  "practicalExperience": [
+    {
+      "program": "Cloud Architecture & Data Analytics",
+      "type": "Virtual Internship",
+      "issuer": "AWS via AICTE GOVT OF INDIA",
+      "description": "Focused on cloud foundation skills and data analytics pipelines."
+    },
+    {
+      "program": "IoT-based Women's Safety Device",
+      "type": "Workshop",
+      "description": "Hands-on IoT system design experience leading to real-time tracking device."
+    },
+    {
+      "program": "Tableau and PowerBI Experience",
+      "type": "Workshop",
+      "description": "Focused on data visualization and reporting techniques."
+    }
+  ],
+
+  "interests": [
+    "Full-Stack Web Development",
+    "Java Application Development",
+    "AI and Chatbot Systems",
+    "Cloud Integration and Deployment",
+    "Data-Driven Software Solutions",
+    "Machine Learning Fundamentals",
+    "NLP & Text Analytics",
+    "IoT Device Programming",
+    "Database Design and Query Optimization",
+    "UI/UX Design and Frontend Logic",
+    "Exploring new frameworks, APIs, and cloud technologies"
+  ],
+
+  "futureGoals": [
+    "Secure a software development internship during August–December semester break.",
+    "Build and deploy more Java-based full-stack applications with AI components.",
+    "Develop a custom portfolio chatbot using RAG and OpenAI.",
+    "Earn certifications in Spring Boot Advanced, AWS, React, and Docker.",
+    "Contribute to open-source projects to strengthen coding and collaboration skills.",
+    "Explore AI-powered personalization systems beyond Perkpal.",
+    "Master cloud deployment with Docker, AWS, and CI/CD pipelines.",
+    "Lead technical projects in software development and AI-driven solutions."
+  ],
+
+  "achievements": [
+    "Dean’s Honour List recipient in Semester 1 and 2 at Humber College.",
+    "Developed and deployed Perkpal frontend and backend structure with chatbot integration.",
+    "Built IoT Women's Safety Device and integrated real-time tracking system.",
+    "Published NLP project on sentiment analysis in IJCRT.",
+    "Completed Café Management System and Bank Management Software projects.",
+    "Hands-on experience with cloud, data analytics, and visualization tools.",
+    "Strong command over web development, Java, and AI ecosystems demonstrated through projects and portfolio."
+  ],
+
+  "personality": "Tarun is detail-oriented, ambitious, and passionate about solving problems through technology. Known for curiosity and dedication, he constantly experiments with frameworks, APIs, and integration methods to stay ahead in IT.",
+  "quote": "Code simple, build smart, stay curious."
+}
