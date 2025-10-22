@@ -100,46 +100,118 @@
         }
 
         /* --- CHATBOT STYLES --- */
-        #chat-toggle-button {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
-        }
-        
         #chat-widget-container {
             position: fixed;
-            bottom: 6rem;
-            right: 2rem;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
-        
-        .chat-message.user {
-            justify-content: flex-end;
-        }
-        .chat-message.user .chat-bubble {
+        #chat-bubble {
+            width: 60px;
+            height: 60px;
             background-color: var(--color-primary-charcoal);
-            color: var(--color-bg-light);
+            color: var(--color-accent-ochre);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        
-        .chat-message.bot .chat-bubble {
+        #chat-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        #chat-popup {
+            display: none;
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background-color: var(--color-bg-light);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            overflow: hidden;
+            flex-direction: column;
+            border: 1px solid var(--color-rule-line);
+        }
+        .chat-header {
             background-color: var(--color-bg-soft);
+            padding: 15px;
+            border-bottom: 1px solid var(--color-rule-line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-header h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
             color: var(--color-text-default);
         }
-
-        .typing-indicator span {
-            animation: blink 1.4s infinite both;
+         .chat-header h3 .bot-icon {
+            color: var(--color-accent-ochre);
         }
-        .typing-indicator span:nth-child(2) {
-            animation-delay: 0.2s;
+        .chat-header button {
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            font-size: 20px;
+            cursor: pointer;
         }
-        .typing-indicator span:nth-child(3) {
-            animation-delay: 0.4s;
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
-        @keyframes blink {
-            0%, 80%, 100% { opacity: 0; }
-            40% { opacity: 1; }
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .user-message {
+            background-color: var(--color-accent-ochre);
+            color: #1A1A1A;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .bot-message {
+            background-color: var(--color-bg-soft);
+            color: var(--color-text-default);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid var(--color-rule-line);
+            display: flex;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            border: 1px solid var(--color-rule-line);
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 14px;
+            background-color: var(--color-bg-light);
+            color: var(--color-text-default);
+        }
+        .chat-input input:focus {
+            outline: none;
+            border-color: var(--color-accent-ochre);
+        }
+        .chat-input button {
+            background: none;
+            border: none;
+            color: var(--color-primary-charcoal);
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -523,46 +595,31 @@
         </div>
     </div>
     
-    <!-- --- START: CHATBOT UI --- -->
-    <button id="chat-toggle-button" title="Chat with TK-Bot" class="w-16 h-16 bg-primary-charcoal rounded-full shadow-2xl flex items-center justify-center text-accent-ochre hover:scale-110 transition-transform duration-300">
-        <i class="fas fa-comments text-2xl"></i>
-    </button>
-
-    <div id="chat-widget-container" class="w-full max-w-sm h-[70vh] bg-bg-light border border-rule-line rounded-xl shadow-2xl flex-col hidden origin-bottom-right opacity-0 -translate-y-4">
-        <!-- Chat Header -->
-        <div class="p-4 border-b border-rule-line flex justify-between items-center bg-bg-soft rounded-t-xl">
-            <div>
-                <h3 class="font-bold text-primary-charcoal">Chat with TK-Bot</h3>
-                <p class="text-xs text-text-secondary">Explore my work, one question at a time.</p>
+    <!-- CHATBOT WIDGET -->
+    <div id="chat-widget-container">
+        <div id="chat-popup">
+            <div class="chat-header">
+                <h3><i class="fas fa-robot bot-icon"></i> TK-Bot</h3>
+                <button id="close-chat">&times;</button>
             </div>
-            <button id="chat-close-button" class="text-3xl text-text-secondary hover:text-accent-ochre transition-colors">&times;</button>
-        </div>
-        
-        <!-- Chat Messages -->
-        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
-            <!-- Bot Welcome Message -->
-            <div class="chat-message bot flex">
-                <div class="chat-bubble rounded-lg p-3 max-w-xs text-sm">
-                    Hi there! I'm TK-Bot. Ask me anything about Tarun's skills, projects, or experience.
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    Hi there! I'm TK-Bot, your personal guide to Tarun's portfolio. Feel free to ask me anything about his skills, projects, or experience.
                 </div>
             </div>
+            <div class="chat-input">
+                <input type="text" id="chat-input-box" placeholder="Ask about a project...">
+                <button id="send-chat-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
         </div>
-        
-        <!-- Chat Input -->
-        <div class="p-4 border-t border-rule-line bg-bg-soft rounded-b-xl">
-            <form id="chat-form" class="flex items-center space-x-2">
-                <input type="text" id="chat-input" placeholder="Ask about a project..." class="w-full px-4 py-2 text-sm bg-bg-light border border-rule-line rounded-lg focus:ring-2 focus:ring-accent-ochre focus:outline-none text-text-default" required>
-                <button type="submit" class="bg-primary-charcoal text-accent-ochre px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
+        <div id="chat-bubble">
+            <i class="fas fa-comment-dots"></i>
         </div>
     </div>
-    <!-- --- END: CHATBOT UI --- -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- YOUR EXISTING PORTFOLIO LOGIC ---
+            // --- Original Portfolio Logic ---
             const toggle = document.getElementById('dark-mode-toggle');
             const sunIcon = document.getElementById('sun-icon');
             const moonIcon = document.getElementById('moon-icon');
@@ -644,6 +701,7 @@
                 link.addEventListener('click', closeMobileMenu);
             });
 
+
             const revealElements = document.querySelectorAll('.scroll-reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -661,47 +719,35 @@
                 observer.observe(el);
             });
 
-            // --- NEW CHATBOT LOGIC ---
-            const chatToggleButton = document.getElementById('chat-toggle-button');
-            const chatCloseButton = document.getElementById('chat-close-button');
-            const chatWidgetContainer = document.getElementById('chat-widget-container');
+            // --- CHATBOT LOGIC ---
+            const chatPopup = document.getElementById('chat-popup');
+            const chatBubble = document.getElementById('chat-bubble');
+            const closeChat = document.getElementById('close-chat');
+            const sendBtn = document.getElementById('send-chat-btn');
+            const chatInput = document.getElementById('chat-input-box');
             const chatMessages = document.getElementById('chat-messages');
-            const chatForm = document.getElementById('chat-form');
-            const chatInput = document.getElementById('chat-input');
-            const backendUrl = 'http://localhost:3000/chat';
 
-            const toggleChatWidget = () => {
-                if (chatWidgetContainer.classList.contains('hidden')) {
-                    chatWidgetContainer.classList.remove('hidden', 'opacity-0', '-translate-y-4');
-                    chatWidgetContainer.classList.add('flex');
-                    chatInput.focus();
-                } else {
-                    chatWidgetContainer.classList.add('opacity-0', '-translate-y-4');
-                    setTimeout(() => {
-                        chatWidgetContainer.classList.add('hidden');
-                        chatWidgetContainer.classList.remove('flex');
-                    }, 300);
-                }
-            };
-            
-            chatToggleButton.addEventListener('click', toggleChatWidget);
-            chatCloseButton.addEventListener('click', toggleChatWidget);
-            
-            chatForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
+            // THIS IS THE UPDATED LINE
+            const API_URL = 'https://tarun-portfolio-bot.onrender.com/chat';
+
+            chatBubble.addEventListener('click', () => {
+                chatPopup.style.display = 'flex';
+            });
+            closeChat.addEventListener('click', () => {
+                chatPopup.style.display = 'none';
+            });
+
+            const sendMessage = async () => {
                 const question = chatInput.value.trim();
                 if (!question) return;
 
-                appendMessage(question, 'user');
+                appendMessage(question, 'user-message');
                 chatInput.value = '';
-                showTypingIndicator();
 
                 try {
-                    const response = await fetch(backendUrl, {
+                    const response = await fetch(API_URL, {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ question }),
                     });
 
@@ -710,48 +756,28 @@
                     }
 
                     const data = await response.json();
-                    removeTypingIndicator();
-                    appendMessage(data.answer, 'bot');
+                    appendMessage(data.answer, 'bot-message');
 
                 } catch (error) {
-                    console.error('Failed to get chat response:', error);
-                    removeTypingIndicator();
-                    appendMessage("Sorry, I'm having trouble connecting to my brain right now. Please try again later.", 'bot');
+                    console.error('Error fetching chat response:', error);
+                    appendMessage('Sorry, I seem to be having trouble connecting. Please try again later.', 'bot-message');
+                }
+            };
+
+            sendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
                 }
             });
 
-            const appendMessage = (text, sender) => {
+            function appendMessage(text, type) {
                 const messageDiv = document.createElement('div');
-                messageDiv.className = `chat-message ${sender} flex`;
-                
-                const bubbleDiv = document.createElement('div');
-                bubbleDiv.className = 'chat-bubble rounded-lg p-3 max-w-xs text-sm';
-                bubbleDiv.textContent = text;
-                
-                messageDiv.appendChild(bubbleDiv);
+                messageDiv.classList.add('message', type);
+                messageDiv.textContent = text;
                 chatMessages.appendChild(messageDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
-            };
-
-            const showTypingIndicator = () => {
-                const indicatorDiv = document.createElement('div');
-                indicatorDiv.id = 'typing-indicator';
-                indicatorDiv.className = 'chat-message bot flex';
-                indicatorDiv.innerHTML = `
-                    <div class="chat-bubble rounded-lg p-3 max-w-xs text-sm typing-indicator">
-                        <span></span><span></span><span></span>
-                    </div>
-                `;
-                chatMessages.appendChild(indicatorDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            };
-
-            const removeTypingIndicator = () => {
-                const indicator = document.getElementById('typing-indicator');
-                if (indicator) {
-                    indicator.remove();
-                }
-            };
+            }
         });
     </script>
 </body>
