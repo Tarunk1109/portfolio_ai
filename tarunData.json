@@ -1,137 +1,136 @@
 {
-  "name": "Tarun Karnati",
-  "title": "Full-Stack Developer | AI & Java Specialist",
-  "summary": "Tarun Karnati is a passionate Full-Stack Developer and current Information Technology Solutions student at Humber College. He specializes in building robust, end-to-end applications with a focus on integrating AI-powered features. With a strong command of Java and Spring Boot for backend systems, and JavaScript, HTML, and CSS for responsive frontends, Tarun excels at creating scalable, user-centric software. His project portfolio demonstrates hands-on experience in full-stack development, IoT, and applying NLP/ML models to solve real-world problems.",
-  "contact": {
-    "email": "tarunk1109@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/tarun-karnati-84a95623b/",
-    "location": "Toronto, Canada"
-  },
-  "education": [
+  "knowledge_base": [
     {
-      "program": "Postgraduate Certificate in Information Technology Solutions",
-      "institution": "Humber College, Toronto, Canada",
-      "status": "Ongoing",
-      "duration": "2025 – Present",
-      "achievements": [
-        "Recipient of the Dean’s Honour List in both Semester 1 and Semester 2.",
-        "Maintained a high academic standing with strong performance in programming, database, and systems courses."
-      ]
+      "topic": "chatbot_identity",
+      "content": "I am TK-Bot, a personal AI assistant for Tarun Karnati's portfolio. I am designed to provide fast and accurate information about his skills, projects, and experience to recruiters and visitors. My knowledge comes directly from his professional data."
     },
     {
-      "program": "Bachelor of Technology in Computer Science and Engineering (Data Science Specialization)",
-      "institution": "SRK Institute of Technology, India",
-      "duration": "2020 – 2024",
-      "highlights": [
-        "Graduated with a specialization in Data Science, building a strong analytical foundation.",
-        "Developed multiple academic projects and prototypes, including work in NLP and Machine Learning.",
-        "Built a robust foundation in algorithms, data structures, and software engineering principles."
-      ]
+      "topic": "contact_primary_email",
+      "content": "The best and most direct way to contact Tarun is by sending an email to tarunk1109@gmail.com."
+    },
+    {
+      "topic": "contact_linkedin",
+      "content": "You can connect with Tarun on his LinkedIn profile here: https://linkedin.com/in/tarun-karnati-84a95623b."
+    },
+    {
+      "topic": "contact_github",
+      "content": "You can view Tarun's code and projects on his GitHub profile: https://github.com/Tarunk1109."
+    },
+    {
+      "topic": "resume_download",
+      "content": "Yes, a downloadable PDF of Tarun's resume is available directly on the portfolio website. As the AI bot, I can't provide the file directly, but you can find the link on the main page."
+    },
+    {
+      "topic": "career_objective_and_availability",
+      "content": "Tarun is actively seeking full-time and co-op opportunities in Software Development. He is especially interested in roles focused on full-stack development or AI integration, where he can help build innovative and impactful software solutions."
+    },
+    {
+      "topic": "work_authorization_canada",
+      "content": "Yes, Tarun is fully eligible to work in Canada. As a postgraduate student at Humber College, he is actively seeking co-op and full-time roles."
+    },
+    {
+      "topic": "professional_summary_overview",
+      "content": "Tarun Karnati is an aspiring Full-Stack Developer based in Toronto, Canada. He specializes in building robust, end-to-end applications with integrated AI features. His expertise lies in using Java and Spring Boot for scalable backend systems and modern JavaScript, HTML, and CSS for responsive frontends."
+    },
+    {
+      "topic": "development_best_practices",
+      "content": "Tarun applies development best practices in his work, including MVC Architecture for organized code, implementing proper User Authentication for security, and detailed error handling to create robust applications."
+    },
+    {
+      "topic": "education_humber_college",
+      "content": "Tarun is a postgraduate student in the Information Technology Solutions program at Humber College in Toronto (expected 2025-2026). He has distinguished himself academically by earning a spot on the Dean's Honour List for Semester 1, 2025."
+    },
+    {
+      "topic": "education_bachelors_degree",
+      "content": "Tarun holds a Bachelor of Technology in Computer Science from the SRK Institute of Technology, India (2020-2024)."
+    },
+    {
+      "topic": "skills_core_languages",
+      "content": "Tarun's core programming languages include Java, Python, C, JavaScript, HTML5, CSS3, SQL, and Bash."
+    },
+    {
+      "topic": "skills_frameworks_databases",
+      "content": "For frameworks and data, Tarun's expertise includes Spring Boot, Node.js, MongoDB, and MySQL. He is also highly proficient with Git and GitHub for version control."
+    },
+    {
+      "topic": "skills_ai_deployment",
+      "content": "In AI and Deployment, Tarun has hands-on experience with GenAI concepts like RAG and fine-tuning, using tools like LangChain and the OpenAI API. He is skilled in deployment using Docker, Postman, Netlify, and Heroku."
+    },
+    {
+      "topic": "technical_interests",
+      "content": "Tarun is passionate about Full-Stack Web Development, building AI and Chatbot Systems, Cloud Integration and Deployment (CI/CD), Data-Driven Software Solutions, and exploring new frameworks and APIs to stay at the forefront of technology."
+    },
+    {
+      "topic": "project_perkpal_overview",
+      "content": "Perkpal is a full-stack web application that provides personalized discounts and coupons to specific communities like students and seniors. It's a complete, end-to-end project that showcases Tarun's ability to build a functional product with features like user registration, login, and categorization."
+    },
+    {
+      "topic": "project_perkpal_tech_stack",
+      "content": "The Perkpal project was built with a modern tech stack: a Java and Spring Boot backend, a MongoDB database for flexible data storage, and a user interface created with JavaScript, HTML, and CSS."
+    },
+    {
+      "topic": "project_perkpal_repo_link",
+      "content": "Yes, the GitHub repository for the Perkpal project is available here: https://github.com/Tarunk1109/PerkPal."
+    },
+    {
+      "topic": "project_iot_overview",
+      "content": "The IoT Women's Safety Device is a hardware and software project designed as a real-time tracking and emergency alert system. The prototype can track a user's location and send alerts, demonstrating skills beyond traditional web development."
+    },
+    {
+      "topic": "project_iot_leadership_role",
+      "content": "Tarun took a leadership role in the IoT safety device project, guiding a small team of four. He was responsible for the overall system architecture, programming the device in Python, and ensuring the successful integration of all components."
+    },
+    {
+      "topic": "project_nlp_overview",
+      "content": "Tarun's NLP project focused on sentiment analysis. He built a system that analyzed thousands of product reviews to extract valuable business insights. This research was formally published in the IJCRT journal, highlighting his ability to produce high-quality academic and practical work."
+    },
+    {
+      "topic": "project_nlp_publication_link",
+      "content": "The publication for Tarun's NLP project can be viewed in the IJCRT journal at this link: http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210."
+    },
+    {
+      "topic": "publication_dcnn_springer",
+      "content": "Tarun also has a publication titled 'Fabric Defect Segmentation (DCNN)' from the IPDIMS 2023 Conference, published by Springer."
+    },
+    {
+      "topic": "certification_docker",
+      "content": "Tarun holds a 'Docker Foundations Professional' certification from LinkedIn. The certificate can be verified here: https://www.linkedin.com/learning/certificates/eb103cef361f6d528bfa297c6d730fb6579041cb4dc626e91377a9269aca1e39?u=2218586."
+    },
+    {
+      "topic": "certification_microsoft_software_dev",
+      "content": "He has earned the 'Career Essentials in Software Development' certification from Microsoft and LinkedIn. Verify it here: https://www.linkedin.com/learning/certificates/0a5fb95f1f2ab199e4ba32cbd91c56f8d8ba092a44026604ef8aa4b12d11a428?u=2218586."
+    },
+    {
+      "topic": "certification_python",
+      "content": "Tarun is certified in 'PCAP: Programming Essentials in Python' from the Cisco Networking Academy."
+    },
+    {
+      "topic": "certification_ai_for_everyone",
+      "content": "He also holds the 'AI for Everyone' certification from Coursera, which can be verified here: https://www.coursera.org/account/accomplishments/verify/DHL7Z3VDD96C."
+    },
+    {
+      "topic": "experience_virtual_internship_aws",
+      "content": "Tarun gained practical experience through a virtual internship with AWS, focused on Cloud Architecture and Data Analytics."
+    },
+    {
+      "topic": "experience_workshops",
+      "content": "He has further honed his skills by participating in hands-on workshops for IoT System Design and Data Visualization with Tableau and PowerBI."
+    },
+    {
+      "topic": "behavioral_full_stack_project_example",
+      "content": "When asked about building a project from scratch, Tarun can point to Perkpal. Situation: He wanted to build a real-world application. Task: Create a full-stack personalized discount platform. Action: He designed the MongoDB schema, developed the Spring Boot REST APIs, built the responsive frontend, and deployed it. Result: A fully functional application that demonstrates his end-to-end development capabilities."
+    },
+    {
+      "topic": "behavioral_leadership_example",
+      "content": "As the lead on the IoT Safety Device project, Tarun was responsible for delegating tasks and managing timelines. When the team faced a critical bug in the GPS module, he organized a debugging session, systematically isolated the problem, and guided the team to implement a software patch, ensuring the project stayed on track and was completed successfully."
+    },
+    {
+      "topic": "strengths_as_developer",
+      "content": "Tarun's key strengths are his solid foundation in full-stack development, his proactive problem-solving mindset, and his genuine passion for integrating AI into practical applications. He is a quick learner who is always exploring new technologies to improve his skill set."
+    },
+    {
+      "topic": "portfolio_website_features",
+      "content": "This portfolio website itself is a project. It features a dark/light mode toggle for user preference and this interactive AI chatbot, TK-Bot, to provide information efficiently."
     }
-  ],
-  "skills": {
-    "frontend": [
-      "HTML5",
-      "CSS3",
-      "JavaScript (ES6+)",
-      "React.js",
-      "Bootstrap",
-      "Tailwind CSS"
-    ],
-    "backend": [
-      "Java",
-      "Spring Boot",
-      "Node.js",
-      "Express.js",
-      "RESTful API Development"
-    ],
-    "databases": [
-      "MySQL",
-      "MongoDB",
-      "SQL Server",
-      "PostgreSQL"
-    ],
-    "ai_ml_devops": [
-      "OpenAI API",
-      "RAG Systems",
-      "LangChain",
-      "Embeddings",
-      "Python",
-      "Docker",
-      "Git/GitHub",
-      "Render",
-      "Vercel"
-    ],
-    "core_concepts": [
-      "Full-Stack Web Application Design",
-      "Object-Oriented Programming (OOP)",
-      "Data Structures & Algorithms",
-      "Database Management",
-      "Version Control (CI/CD)",
-      "IoT Device Programming",
-      "Data Analytics & Visualization"
-    ]
-  },
-  "projects": [
-    {
-      "name": "Perkpal",
-      "description": "Perkpal is a full-stack personalized offers and coupon platform designed to provide exclusive deals to specific communities such as students, seniors, LGBTQ+, and other groups. The application features a clean, functional design with user registration, login, and dynamic categorization of offers.",
-      "tagline": "Your go-to platform for personalized discounts.",
-      "technologies": "Java, Spring Boot, MongoDB, JavaScript, HTML, CSS",
-      "goal": "To demonstrate strong full-stack development skills by creating a real-world system with a clean, functional design and AI integration."
-    },
-    {
-      "name": "IoT Women's Safety Device",
-      "description": "An embedded systems project where Tarun led a small team to build a real-time tracking and alert system. The device was designed to track a user's location and send emergency alerts.",
-      "technologies": "Raspberry Pi Pico, Python, Embedded Systems",
-      "goal": "To design and prototype a real-time safety device that tracks user location and sends critical alerts during emergencies, demonstrating skills in both hardware and software integration."
-    },
-    {
-      "name": "Public Relationships using NLP",
-      "description": "A Natural Language Processing (NLP) and Machine Learning project focused on analyzing sentiment from thousands of product reviews to provide actionable business insights. This work was published in the IJCRT journal.",
-      "technologies": "Python, NLP, Scikit-learn, Text Mining",
-      "goal": "To apply advanced NLP and ML techniques for real-world sentiment analysis and extract valuable business intelligence from unstructured text data."
-    }
-  ],
-  "faq": [
-    {
-      "question": "How can I contact Tarun?",
-      "answer": "You can contact Tarun directly via email at tarunk1109@gmail.com or connect with him on his LinkedIn profile: https://www.linkedin.com/in/tarun-karnati-84a95623b/"
-    },
-    {
-      "question": "What kind of role is Tarun looking for?",
-      "answer": "Tarun is actively seeking co-op, internship, and full-time job opportunities in Software Development. He is particularly passionate about full-stack and AI-focused positions where he can contribute to building innovative solutions."
-    },
-    {
-      "question": "Is Tarun eligible to work in Canada?",
-      "answer": "Yes, as a student at Humber College, Tarun is eligible to work in Canada. He is actively looking for co-op, internship and full-time opportunities."
-    },
-    {
-      "question": "What are Tarun's key technical skills?",
-      "answer": "Tarun is a full-stack developer. His key skills are in Java and Spring Boot for the backend, and JavaScript, HTML, and CSS for the frontend. He is also proficient with databases like MySQL and MongoDB, and has hands-on experience integrating AI using the OpenAI API."
-    },
-    {
-      "question": "What is his experience with AI?",
-      "answer": "Tarun has practical experience integrating AI models via the OpenAI API. He has built a custom chatbot for his portfolio using a Retrieval-Augmented Generation (RAG) system, which involves creating vector embeddings for semantic search. His academic background in Data Science and projects in NLP also provide a strong foundation in AI concepts."
-    },
-    {
-      "question": "What was his role in the IoT Women's Safety Device project?",
-      "answer": "Tarun led a team of four in the IoT Women's Safety Device project. He was responsible for the overall system design, Python scripting for the Raspberry Pi Pico, and integrating the hardware components to create a functional tracking and alert system."
-    },
-    {
-      "question": "Tell me about his Perkpal project.",
-      "answer": "Perkpal is a full-stack application Tarun built to demonstrate his skills. It delivers personalized discounts to different user groups. He used Java and Spring Boot for the backend logic, MongoDB for the database, and JavaScript, HTML, and CSS for the user interface."
-    },
-    {
-      "question": "What makes him a good fit for a development team?",
-      "answer": "Tarun is a proactive problem-solver and a collaborative team player. His project experience shows he can take ownership of tasks, from backend logic to frontend design. He is curious, dedicated, and always eager to learn new technologies to contribute to the team's success."
-    },
-    {
-      "question": "What is his educational background?",
-      "answer": "Tarun is currently a postgraduate student in Information Technology Solutions at Humber College in Toronto. He previously completed his Bachelor of Technology in Computer Science with a specialization in Data Science from SRK Institute of Technology in India."
-    }
-  ],
-  "personality": "Tarun is a detail-oriented, ambitious, and passionate developer dedicated to solving problems through technology. Known for his curiosity and dedication, he constantly experiments with new frameworks, APIs, and integration methods to stay ahead in the ever-evolving field of IT.",
-  "quote": "Code simple, build smart, stay curious."
+  ]
 }
-
