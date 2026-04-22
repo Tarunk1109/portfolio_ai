@@ -69,6 +69,10 @@
             transition: background-color 0.3s, color 0.3s;
             -webkit-font-smoothing: antialiased;
         }
+
+        section[id] {
+            scroll-margin-top: 5.5rem;
+        }
         
         .hero-bg {
             background-image: radial-gradient(var(--color-rule-line) 1px, transparent 1px);
@@ -222,6 +226,63 @@
             margin-left: 10px;
             cursor: pointer;
         }
+
+        .project-card {
+            position: relative;
+            background-color: var(--color-bg-light);
+            border: 1px solid var(--color-rule-line);
+            border-radius: 0.875rem;
+            overflow: hidden;
+            transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent-ochre), #d97706);
+            opacity: 0.95;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-accent-ochre);
+            box-shadow: 0 22px 44px -14px rgba(0, 0, 0, 0.14);
+        }
+        html.dark .project-card:hover {
+            box-shadow: 0 22px 44px -14px rgba(0, 0, 0, 0.45);
+        }
+
+        .hackathon-spotlight {
+            position: relative;
+            border-radius: 1rem;
+            border: 1px solid var(--color-rule-line);
+            background: linear-gradient(
+                145deg,
+                color-mix(in srgb, var(--color-accent-ochre) 12%, var(--color-bg-light)) 0%,
+                var(--color-bg-light) 42%,
+                var(--color-bg-soft) 100%
+            );
+            overflow: hidden;
+            transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+        }
+        html.dark .hackathon-spotlight {
+            background: linear-gradient(
+                145deg,
+                color-mix(in srgb, var(--color-accent-ochre) 18%, var(--color-bg-light)) 0%,
+                var(--color-bg-light) 45%,
+                var(--color-bg-soft) 100%
+            );
+        }
+        .hackathon-spotlight:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-accent-ochre);
+            box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.16);
+        }
+        html.dark .hackathon-spotlight:hover {
+            box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.5);
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -235,6 +296,7 @@
                 <a href="#about" class="text-text-default hover:text-accent-ochre transition-colors duration-300">About</a>
                 <a href="#skills" class="text-text-default hover:text-accent-ochre transition-colors duration-300">Expertise</a>
                 <a href="#projects" class="text-text-default hover:text-accent-ochre transition-colors duration-300">Work</a>
+                <a href="#hackathons" class="text-text-default hover:text-accent-ochre transition-colors duration-300">Hackathons</a>
                 <a href="#timeline" class="text-text-default hover:text-accent-ochre transition-colors duration-300">Timeline</a>
             </nav>
             <div class="flex items-center space-x-4">
@@ -266,6 +328,7 @@
                 <a href="#about" class="mobile-menu-link text-3xl font-bold text-text-default hover:text-accent-ochre transition-colors duration-300">About</a>
                 <a href="#skills" class="mobile-menu-link text-3xl font-bold text-text-default hover:text-accent-ochre transition-colors duration-300">Expertise</a>
                 <a href="#projects" class="mobile-menu-link text-3xl font-bold text-text-default hover:text-accent-ochre transition-colors duration-300">Work</a>
+                <a href="#hackathons" class="mobile-menu-link text-3xl font-bold text-text-default hover:text-accent-ochre transition-colors duration-300">Hackathons</a>
                 <a href="#timeline" class="mobile-menu-link text-3xl font-bold text-text-default hover:text-accent-ochre transition-colors duration-300">Timeline</a>
                 <a href="mailto:tarunk1109@gmail.com" class="mt-8 inline-block bg-primary-charcoal text-white dark:text-gray-900 px-8 py-3 text-lg font-bold tracking-wider rounded-md hover:bg-accent-ochre hover:text-primary-charcoal transition-all duration-300">
                     CONTACT
@@ -285,11 +348,11 @@
                 </div>
                 <div class="lg:col-span-4 lg:pl-10 flex flex-col justify-end scroll-reveal" style="transition-delay: 100ms;">
                     <p class="text-lg font-light text-text-secondary mb-8">
-                        Aspiring Full Stack Developer with a strong foundation in Java, Spring Boot, and various web technologies. My career objective is to build impactful, user-centric applications.
+                        Aspiring full-stack developer passionate about building scalable applications and intelligent, data-driven systems. Driven to leverage AI and emerging technologies to solve real-world problems.
                     </p>
                     <div class="border-t border-b border-rule-line py-4 flex justify-between items-center text-sm font-semibold text-text-default">
                         <span><i class="fas fa-map-marker-alt mr-2 text-accent-ochre"></i>Toronto, Canada</span>
-                        <a href="https://linkedin.com/in/tarun-karnati-84a95623b" target="_blank" class="text-accent-ochre hover:text-primary-charcoal transition duration-300 group">
+                        <a href="https://linkedin.com/in/tarunkarnati" target="_blank" class="text-accent-ochre hover:text-primary-charcoal transition duration-300 group">
                             LinkedIn <i class="fas fa-arrow-right text-xs ml-1 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
@@ -312,10 +375,10 @@
                 </div>
                 <div class="lg:col-span-3 text-lg text-text-secondary leading-relaxed scroll-reveal" style="transition-delay: 100ms;">
                     <p class="mb-4">
-                        My name is Tarun Karnati, and I am an aspiring Full Stack Developer. My primary objective is to build impactful, user-centric applications and grow within a dynamic environment where I can contribute to innovative tech solutions.
+                        My name is Tarun Karnati, and I am an aspiring Full Stack Developer passionate about building scalable applications and intelligent, data-driven systems. I thrive on developing end-to-end solutions across frontend, backend, databases, and cloud platforms.
                     </p>
                     <p>
-                        I focus on full-stack development, combining robust backend engineering in <span class="font-semibold text-text-default">Java and Spring Boot</span> with responsive frontend design using HTML, CSS, and JavaScript. I apply best practices like MVC Architecture, User Authentication, and detailed error handling to ensure high-quality, maintainable systems.
+                        I combine robust backend engineering in <span class="font-semibold text-text-default">Java, Spring Boot, Flask, and Node.js</span> with responsive frontend design using HTML, CSS, and JavaScript. I leverage AI technologies including <span class="font-semibold text-text-default">MCP, LLM Integration, RAG, and LangChain</span> to deliver impactful, user-focused products.
                     </p>
                     <div class="mt-8 border-t border-rule-line pt-6">
                         <p class="text-base font-bold text-primary-charcoal mb-4">Contact & Links:</p>
@@ -323,7 +386,7 @@
                             <a href="mailto:tarunk1109@gmail.com" aria-label="Email Me" class="h-14 w-14 flex items-center justify-center bg-bg-light rounded-full shadow-editorial-subtle hover:bg-white hover:shadow-lg hover:text-accent-ochre text-text-secondary transition-all duration-300 transform hover:scale-110">
                                 <i class="fas fa-envelope text-2xl"></i>
                             </a>
-                             <a href="https://linkedin.com/in/tarun-karnati-84a95623b" aria-label="LinkedIn Profile" target="_blank" class="h-14 w-14 flex items-center justify-center bg-bg-light rounded-full shadow-editorial-subtle hover:bg-white hover:shadow-lg hover:text-accent-ochre text-text-secondary transition-all duration-300 transform hover:scale-110">
+                             <a href="https://linkedin.com/in/tarunkarnati" aria-label="LinkedIn Profile" target="_blank" class="h-14 w-14 flex items-center justify-center bg-bg-light rounded-full shadow-editorial-subtle hover:bg-white hover:shadow-lg hover:text-accent-ochre text-text-secondary transition-all duration-300 transform hover:scale-110">
                                 <i class="fab fa-linkedin-in text-2xl"></i>
                             </a>
                              <a href="https://github.com/Tarunk1109" aria-label="GitHub Profile" target="_blank" class="h-14 w-14 flex items-center justify-center bg-bg-light rounded-full shadow-editorial-subtle hover:bg-white hover:shadow-lg hover:text-accent-ochre text-text-secondary transition-all duration-300 transform hover:scale-110">
@@ -337,123 +400,228 @@
         
         <section id="skills" class="py-20 lg:py-24 bg-bg-light border-b border-rule-line">
             <div class="container mx-auto px-6 lg:px-16">
-                <div class="text-center mb-16 scroll-reveal">
+                <div class="text-center mb-16 scroll-reveal max-w-3xl mx-auto">
                     <span class="text-xs font-semibold uppercase text-accent-ochre tracking-widest block mb-2">SECTION 02</span>
-                    <h2 class="text-4xl lg:text-5xl font-black text-primary-charcoal">
+                    <h2 class="text-4xl lg:text-5xl font-black text-primary-charcoal tracking-tight">
                         The Technical Matrix.
                     </h2>
+                    <p class="mt-4 text-text-secondary text-lg leading-relaxed">
+                        Languages, frameworks, and the AI and cloud stack used in production-style projects.
+                    </p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 border border-rule-line rounded-xl overflow-hidden shadow-lg shadow-black/5 scroll-reveal" style="transition-delay: 100ms;">
-                    <div class="p-8 md:border-r border-b md:border-b-0 border-rule-line hover:bg-bg-soft transition-colors duration-300">
+                <div class="grid grid-cols-1 md:grid-cols-3 border border-rule-line rounded-xl overflow-hidden shadow-lg shadow-black/5 dark:shadow-black/40 ring-1 ring-black/[0.04] dark:ring-white/[0.06] scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="p-8 md:border-r border-b border-rule-line hover:bg-bg-soft transition-colors duration-300">
                         <h3 class="text-xl font-bold text-primary-charcoal mb-4 flex items-center">
-                            <i class="fas fa-code text-accent-ochre mr-4 text-2xl"></i> CORE LANGUAGES
+                            <i class="fas fa-code text-accent-ochre mr-4 text-2xl"></i> LANGUAGES
                         </h3>
                         <ul class="text-text-secondary space-y-2 text-base border-t border-rule-line pt-4">
                             <li><b class="text-text-default">Java</b>, <b class="text-text-default">Python</b>, <b class="text-text-default">C</b></li>
-                            <li><b class="text-text-default">JavaScript</b>, <b class="text-text-default">HTML5</b>, <b class="text-text-default">CSS3</b>, <b class="text-text-default">SQL</b></li>
-                            <li><b class="text-text-default">Bash</b></li>
+                            <li><b class="text-text-default">JavaScript</b>, <b class="text-text-default">HTML5</b>, <b class="text-text-default">CSS3</b></li>
+                            <li><b class="text-text-default">SQL</b>, <b class="text-text-default">Bash</b></li>
                         </ul>
                     </div>
-                    
+
+                    <div class="p-8 md:border-r border-b border-rule-line hover:bg-bg-soft transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-primary-charcoal mb-4 flex items-center">
+                            <i class="fas fa-cogs text-accent-ochre mr-4 text-2xl"></i> FRAMEWORKS & APIs
+                        </h3>
+                        <ul class="text-text-secondary space-y-2 text-base border-t border-rule-line pt-4">
+                            <li><b class="text-text-default">Flask</b>, <b class="text-text-default">Spring Boot</b></li>
+                            <li><b class="text-text-default">Node.js</b>, <b class="text-text-default">Express.js</b></li>
+                            <li><b class="text-text-default">RESTful APIs</b></li>
+                        </ul>
+                    </div>
+
+                    <div class="p-8 border-b border-rule-line hover:bg-bg-soft transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-primary-charcoal mb-4 flex items-center">
+                            <i class="fas fa-robot text-accent-ochre mr-4 text-2xl"></i> AI
+                        </h3>
+                        <ul class="text-text-secondary space-y-2 text-base border-t border-rule-line pt-4">
+                            <li><b class="text-text-default">MCP</b>, <b class="text-text-default">LLM Integration</b></li>
+                            <li><b class="text-text-default">RAG</b>, <b class="text-text-default">Fine-Tuning</b>, <b class="text-text-default">LangChain</b></li>
+                            <li><b class="text-text-default">OpenAI API</b>, <b class="text-text-default">Hugging Face</b></li>
+                        </ul>
+                    </div>
+
                     <div class="p-8 md:border-r border-b md:border-b-0 border-rule-line hover:bg-bg-soft transition-colors duration-300">
                         <h3 class="text-xl font-bold text-primary-charcoal mb-4 flex items-center">
-                            <i class="fas fa-cogs text-accent-ochre mr-4 text-2xl"></i> DATA & FRAMEWORKS
+                            <i class="fas fa-cloud text-accent-ochre mr-4 text-2xl"></i> CLOUD & DEVOPS
                         </h3>
                         <ul class="text-text-secondary space-y-2 text-base border-t border-rule-line pt-4">
-                            <li><b class="text-text-default">Spring Boot</b>, <b class="text-text-default">Node.js </b></li>
-                            <li><b class="text-text-default">MongoDB</b>, <b class="text-text-default">MySQL</b></li>
-                            <li><b class="text-text-default">Git & GitHub</b></li>
+                            <li><b class="text-text-default">Microsoft Azure</b>, <b class="text-text-default">Docker</b></li>
+                            <li><b class="text-text-default">Render</b>, <b class="text-text-default">Netlify</b>, <b class="text-text-default">Railway</b></li>
                         </ul>
                     </div>
-                    
+
+                    <div class="p-8 md:border-r border-b md:border-b-0 border-rule-line hover:bg-bg-soft transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-primary-charcoal mb-4 flex items-center">
+                            <i class="fas fa-brain text-accent-ochre mr-4 text-2xl"></i> MACHINE LEARNING
+                        </h3>
+                        <ul class="text-text-secondary space-y-2 text-base border-t border-rule-line pt-4">
+                            <li><b class="text-text-default">scikit-learn</b>, <b class="text-text-default">TensorFlow</b></li>
+                            <li><b class="text-text-default">Pandas</b>, <b class="text-text-default">NumPy</b></li>
+                            <li><b class="text-text-default">Regression</b>, <b class="text-text-default">Classification</b>, <b class="text-text-default">Clustering</b></li>
+                            <li><b class="text-text-default">Feature Engineering</b>, Model Evaluation (Precision, Recall, F1)</li>
+                        </ul>
+                    </div>
+
                     <div class="p-8 hover:bg-bg-soft transition-colors duration-300">
                         <h3 class="text-xl font-bold text-primary-charcoal mb-4 flex items-center">
-                            <i class="fas fa-cloud-upload-alt text-accent-ochre mr-4 text-2xl"></i> AI & DEPLOYMENT
+                            <i class="fas fa-database text-accent-ochre mr-4 text-2xl"></i> DATABASES & TOOLS
                         </h3>
                         <ul class="text-text-secondary space-y-2 text-base border-t border-rule-line pt-4">
-                            <li><b class="text-text-default">GenAI (RAG, Fine-tuning)</b>, <b class="text-text-default">LangChain</b></li>
-                            <li><b class="text-text-default">Hugging Face</b>, <b class="text-text-default">OpenAI API</b></li>
-                            <li><b class="text-text-default">Docker</b>, <b class="text-text-default">Git/GitHub</b>, <b class="text-text-default">Postman</b></li>
-                            <li><b class="text-text-default">Netlify</b>, <b class="text-text-default">Heroku</b></li>
+                            <li><b class="text-text-default">MongoDB</b>, <b class="text-text-default">MySQL</b></li>
+                            <li><b class="text-text-default">Git</b>, <b class="text-text-default">Postman</b></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="py-20 lg:py-24 bg-bg-soft border-b border-rule-line">
+        <section id="projects" class="py-20 lg:py-28 bg-bg-soft border-b border-rule-line">
             <div class="container mx-auto px-6 lg:px-16">
-                <div class="text-center mb-16 scroll-reveal">
+                <div class="text-center mb-6 scroll-reveal max-w-3xl mx-auto">
                     <span class="text-xs font-semibold uppercase text-accent-ochre tracking-widest block mb-2">SECTION 03</span>
-                    <h2 class="text-4xl lg:text-5xl font-black text-primary-charcoal">
-                        My Projects.
+                    <h2 class="text-4xl lg:text-5xl font-black text-primary-charcoal tracking-tight">
+                        Selected work.
                     </h2>
+                    <p class="mt-4 text-text-secondary text-lg leading-relaxed">
+                        Full-stack builds, AI automation, and research — each shipped with clear scope and measurable outcomes.
+                    </p>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <div class="bg-bg-light border border-rule-line rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-accent-ochre hover:-translate-y-2 flex flex-col scroll-reveal">
-                        <div class="p-8 flex-grow">
-                            <p class="text-sm font-semibold text-accent-ochre mb-2 uppercase tracking-wider">Full-Stack Application</p>
-                            <h3 class="text-2xl font-black text-primary-charcoal mb-4">PERKPAL - Personalized Discounts</h3>
-                            <p class="text-text-secondary mb-6 leading-relaxed">
-                                Built a full-stack personalized discounts web app using Spring Boot and MongoDB, delivering targeted offers to specific communities.
+
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10 mt-14">
+
+                    <article class="project-card flex flex-col scroll-reveal">
+                        <div class="p-8 flex-grow pt-10">
+                            <p class="text-xs font-bold text-accent-ochre uppercase tracking-widest mb-2">AI · DevOps</p>
+                            <h3 class="text-2xl font-black text-primary-charcoal mb-4 leading-tight">ORCA AI</h3>
+                            <p class="text-text-secondary leading-relaxed text-[15px]">
+                                MCP-based platform that orchestrates tools and LLM agents for autonomous code generation, validation, and deployment — including multi-model routing and a self-healing pipeline on Railway.
                             </p>
                         </div>
-                        <div class="p-8 bg-bg-soft/50 border-t border-rule-line">
-                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-medium bg-rule-line text-text-default px-3 py-1 rounded-full">Spring Boot</span>
-                                <span class="text-xs font-medium bg-rule-line text-text-default px-3 py-1 rounded-full">MongoDB</span>
+                        <div class="p-8 pt-0 mt-auto">
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">Python</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">Flask</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">MCP</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">OpenAI</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">Railway</span>
                             </div>
-                            <button onclick="openModal('perkpal')" class="text-primary-charcoal font-bold text-base flex items-center hover:text-accent-ochre transition-colors duration-300 group focus:outline-none">
-                                View Full Description <i class="fas fa-external-link-alt ml-2 text-sm group-hover:text-accent-ochre transition-colors"></i>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/Tarunk1109/orca_ai" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-2 bg-primary-charcoal text-white dark:text-gray-900 text-sm font-bold py-3 px-4 rounded-lg hover:bg-accent-ochre hover:text-primary-charcoal transition-all duration-300">
+                                    <i class="fab fa-github"></i> Repo
+                                </a>
+                                <button type="button" onclick="openModal('orca')" class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-primary-charcoal text-primary-charcoal text-sm font-bold py-3 px-4 rounded-lg hover:bg-primary-charcoal hover:text-white transition-all duration-300">
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card flex flex-col scroll-reveal" style="transition-delay: 80ms;">
+                        <div class="p-8 flex-grow pt-10">
+                            <p class="text-xs font-bold text-accent-ochre uppercase tracking-widest mb-2">Full-stack</p>
+                            <h3 class="text-2xl font-black text-primary-charcoal mb-4 leading-tight">PerkPal</h3>
+                            <p class="text-text-secondary leading-relaxed text-[15px]">
+                                Web app for community-targeted discounts and coupons — registration, categories, and deals across fashion, electronics, entertainment, and more. Spring Boot APIs with a MongoDB backend.
+                            </p>
+                        </div>
+                        <div class="p-8 pt-0 mt-auto">
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">Spring Boot</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">MongoDB</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">JavaScript</span>
+                            </div>
+                            <button type="button" onclick="openModal('perkpal')" class="w-full inline-flex items-center justify-center gap-2 border-2 border-primary-charcoal text-primary-charcoal text-sm font-bold py-3 px-4 rounded-lg hover:bg-primary-charcoal hover:text-white transition-all duration-300 group focus:outline-none">
+                                View details <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                             </button>
                         </div>
-                    </div>
-                    
-                    <div class="bg-bg-light border border-rule-line rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-accent-ochre hover:-translate-y-2 flex flex-col scroll-reveal" style="transition-delay: 100ms;">
-                        <div class="p-8 flex-grow">
-                            <p class="text-sm font-semibold text-accent-ochre mb-2 uppercase tracking-wider">Embedded System & Leadership</p>
-                            <h3 class="text-2xl font-black text-primary-charcoal mb-4">IoT Women's Safety Device</h3>
-                            <p class="text-text-secondary mb-6 leading-relaxed">
-                                Led a team of four to design and develop a tracking and alert system using a Raspberry Pi Pico. Demonstrates Python scripting and real-time systems integration.
-                            </p>
-                        </div>
-                         <div class="p-8 bg-bg-soft/50 border-t border-rule-line">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs font-medium bg-rule-line text-text-default px-3 py-1 rounded-full">Raspberry Pi</span>
-                                <span class="text-xs font-medium bg-rule-line text-text-default px-3 py-1 rounded-full">Python</span>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
 
-                    <div class="bg-bg-light border border-rule-line rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-accent-ochre hover:-translate-y-2 flex flex-col scroll-reveal" style="transition-delay: 200ms;">
-                        <div class="p-8 flex-grow">
-                            <p class="text-sm font-semibold text-accent-ochre mb-2 uppercase tracking-wider">NLP & Machine Learning</p>
-                            <h3 class="text-2xl font-black text-primary-charcoal mb-4">PUBLIC RELATIONSHIPS using NLP</h3>
-                            <p class="text-text-secondary mb-6 leading-relaxed">
-                                Utilized NLP and ML to analyze sentiments from product reviews, providing valuable business insights into public opinion.
+                    <article class="project-card flex flex-col scroll-reveal md:col-span-2 xl:col-span-1" style="transition-delay: 160ms;">
+                        <div class="p-8 flex-grow pt-10">
+                            <p class="text-xs font-bold text-accent-ochre uppercase tracking-widest mb-2">NLP · Research</p>
+                            <h3 class="text-2xl font-black text-primary-charcoal mb-4 leading-tight">Sentiment analysis</h3>
+                            <p class="text-text-secondary leading-relaxed text-[15px]">
+                                Product-review classification with Logistic Regression and Naive Bayes. Published in IJCRT (2024) as <em class="not-italic font-semibold text-text-default">Public Relationships Using NLP and ML</em>.
                             </p>
                         </div>
-                        <div class="p-8 bg-bg-soft/50 border-t border-rule-line">
+                        <div class="p-8 pt-0 mt-auto">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-medium bg-rule-line text-text-default px-3 py-1 rounded-full">Python</span>
-                                <span class="text-xs font-medium bg-rule-line text-text-default px-3 py-1 rounded-full">NLP/ML</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">Python</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">scikit-learn</span>
+                                <span class="text-xs font-medium bg-bg-soft text-text-default px-3 py-1.5 rounded-full border border-rule-line">NLP</span>
                             </div>
-                            <a href="http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210" target="_blank" class="text-primary-charcoal font-bold text-base flex items-center hover:text-accent-ochre transition-colors duration-300 group">
-                                View Publication <i class="fas fa-external-link-alt ml-2 text-sm group-hover:text-accent-ochre transition-colors"></i>
+                            <a href="http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-primary-charcoal text-white dark:text-gray-900 text-sm font-bold py-3 px-4 rounded-lg hover:bg-accent-ochre hover:text-primary-charcoal transition-all duration-300 group">
+                                Read publication <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                             </a>
                         </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="hackathons" class="py-20 lg:py-28 bg-bg-light border-b border-rule-line">
+            <div class="container mx-auto px-6 lg:px-16">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                    <div class="lg:col-span-4 lg:border-r border-rule-line pb-8 lg:pb-0 lg:pr-10 scroll-reveal">
+                        <span class="text-xs font-semibold uppercase text-accent-ochre tracking-widest block mb-2">SECTION 04</span>
+                        <h2 class="text-4xl font-black text-primary-charcoal tracking-tight leading-none mb-4">
+                            Hackathons.
+                        </h2>
+                        <p class="text-text-secondary leading-relaxed">
+                            Short sprints where the goal is a working demo, a coherent story, and integrations that would normally take weeks — leadership, APIs, and UX under a hard deadline.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-8 scroll-reveal" style="transition-delay: 100ms;">
+                        <article class="hackathon-spotlight p-8 lg:p-10">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                                        <span class="inline-flex items-center gap-1.5 text-xs font-black bg-accent-ochre text-gray-900 px-3 py-1 rounded-full uppercase tracking-wide">
+                                            <i class="fas fa-trophy" aria-hidden="true"></i> 2nd place
+                                        </span>
+                                        <span class="text-xs font-bold text-text-secondary uppercase tracking-widest">3-day build</span>
+                                    </div>
+                                    <h3 class="text-2xl sm:text-3xl font-black text-primary-charcoal leading-tight">Alberta AI Gateway</h3>
+                                    <p class="text-sm text-accent-ochre font-bold uppercase tracking-wider mt-2">AI &amp; XR · Smart tourism</p>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-[15px] sm:text-base leading-relaxed mb-8 max-w-3xl">
+                                Full-stack platform connecting Alberta globally across tourism, trade, culture, and education. Integrated <strong class="font-semibold text-text-default">Whisper</strong> (speech-to-text), <strong class="font-semibold text-text-default">Gemini / GPT</strong>, text-to-speech, <strong class="font-semibold text-text-default">Ticketmaster</strong> and <strong class="font-semibold text-text-default">OpenWeather</strong> APIs, plus immersive XR with 3D assets — built and led end-to-end in the hackathon window.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="text-xs font-semibold bg-primary-charcoal text-accent-ochre px-3 py-1.5 rounded-md">React</span>
+                                <span class="text-xs font-semibold bg-primary-charcoal text-accent-ochre px-3 py-1.5 rounded-md">Node.js</span>
+                                <span class="text-xs font-semibold bg-primary-charcoal text-accent-ochre px-3 py-1.5 rounded-md">Express</span>
+                                <span class="text-xs font-semibold bg-primary-charcoal text-accent-ochre px-3 py-1.5 rounded-md">Whisper</span>
+                                <span class="text-xs font-semibold bg-primary-charcoal text-accent-ochre px-3 py-1.5 rounded-md">Gemini / GPT</span>
+                                <span class="text-xs font-semibold bg-primary-charcoal text-accent-ochre px-3 py-1.5 rounded-md">XR</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3">
+                                <a href="https://alberta-ai-gateway.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-accent-ochre text-gray-900 font-bold text-sm py-3 px-6 rounded-lg hover:opacity-90 transition-opacity">
+                                    Live demo <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
+                                <a href="https://github.com/Tarunk1109/alberta-ai-gateway" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-primary-charcoal text-primary-charcoal font-bold text-sm py-3 px-6 rounded-lg hover:bg-primary-charcoal hover:text-white transition-all duration-300">
+                                    <i class="fab fa-github"></i> Source
+                                </a>
+                                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7405048889361350656/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-sm font-bold text-text-secondary hover:text-accent-ochre py-3 px-2 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i> Organizers' post
+                                </a>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="timeline" class="py-20 lg:py-24 bg-bg-light">
+        <section id="timeline" class="py-20 lg:py-28 bg-bg-soft">
             <div class="container mx-auto px-6 lg:px-16">
                 <div class="text-center mb-16 scroll-reveal">
-                    <span class="text-xs font-semibold uppercase text-accent-ochre tracking-widest block mb-2">SECTION 04</span>
+                    <span class="text-xs font-semibold uppercase text-accent-ochre tracking-widest block mb-2">SECTION 05</span>
                     <h2 class="text-4xl lg:text-5xl font-black text-primary-charcoal">
                         Timeline & Milestones.
                     </h2>
@@ -463,85 +631,143 @@
                     
                     <div class="py-8 scroll-reveal">
                         <h3 class="text-3xl font-black text-primary-charcoal mb-8 border-b-2 border-accent-ochre inline-block pb-2">EDUCATION</h3>
-                        <div class="relative pl-8 border-l-2 border-rule-line space-y-12">
-                            <div class="absolute -left-[11px] top-1 w-5 h-5 bg-accent-ochre rounded-full border-4 border-bg-light dark:border-bg-light"></div>
-                            <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">2025 - 2026 (Expected)</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Information Technology Solutions</h4>
-                                <p class="text-text-secondary text-base">Humber College, Toronto</p>
-                                <p class="text-xs italic text-text-secondary/70 mt-1">Dean's Honour List - Semester 1, 2025</p>
+                        <div class="relative pl-8 border-l-2 border-rule-line space-y-10">
+                            <div class="relative scroll-reveal">
+                                <div class="absolute -left-[43px] top-1 w-5 h-5 bg-accent-ochre rounded-full border-4 border-bg-light"></div>
+                                <p class="text-sm font-semibold text-accent-ochre">2025 – 2026 &nbsp;·&nbsp; Toronto</p>
+                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Postgraduate Certificate — Information Technology Solutions</h4>
+                                <p class="text-text-secondary text-base">Humber College Institute of Technology</p>
+                                <span class="inline-flex items-center gap-1.5 mt-3 bg-accent-ochre text-gray-900 text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wide">
+                                    <i class="fas fa-award"></i> Dean's Honour List — Semester 1 &amp; 2, 2025
+                                </span>
                             </div>
-                            <div class="absolute -left-[11px] mt-1 w-5 h-5 bg-accent-ochre rounded-full border-4 border-bg-light dark:border-bg-light"></div>
-                            <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">2020 - 2024</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Bachelor of Technology - Computer Science</h4>
-                                <p class="text-text-secondary text-base">SRK Institute of Technology, India </p>
+                            <div class="relative scroll-reveal">
+                                <div class="absolute -left-[43px] top-1 w-5 h-5 bg-bg-soft border-2 border-accent-ochre rounded-full"></div>
+                                <p class="text-sm font-semibold text-accent-ochre">2020 – 2024 &nbsp;·&nbsp; India</p>
+                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Bachelor of Technology — Data Science</h4>
+                                <p class="text-text-secondary text-base">SRK Institute of Technology</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="py-8 scroll-reveal" style="transition-delay: 100ms;">
                         <h3 class="text-3xl font-black text-primary-charcoal mb-8 border-b-2 border-accent-ochre inline-block pb-2">CERTIFICATIONS</h3>
-                        <div class="space-y-6">
-                            <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">DOCKER & LINKEDIN</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">
-                                    <a href="https://www.linkedin.com/learning/certificates/eb103cef361f6d528bfa297c6d730fb6579041cb4dc626e91377a9269aca1e39?u=2218586" target="_blank" class="hover:text-accent-ochre transition-colors duration-300">Docker Foundations Professional <i class="fas fa-link text-xs ml-1 opacity-70"></i></a>
-                                </h4>
+                        <div class="space-y-4">
+                            <div class="scroll-reveal flex items-start gap-4 p-4 rounded-lg border border-rule-line hover:border-accent-ochre hover:bg-bg-soft transition-all duration-300">
+                                <div class="w-9 h-9 flex-shrink-0 bg-accent-ochre/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-certificate text-accent-ochre text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-accent-ochre uppercase tracking-widest">Anthropic</p>
+                                    <p class="text-base font-bold text-primary-charcoal mt-0.5">Introduction to Model Context Protocol</p>
+                                </div>
                             </div>
-                             <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">MICROSOFT & LINKEDIN</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">
-                                    <a href="https://www.linkedin.com/learning/certificates/0a5fb95f1f2ab199e4ba32cbd91c56f8d8ba092a44026604ef8aa4b12d11a428?u=2218586" target="_blank" class="hover:text-accent-ochre transition-colors duration-300">Career Essentials in Software Development <i class="fas fa-link text-xs ml-1 opacity-70"></i></a>
-                                </h4>
+                            <div class="scroll-reveal flex items-start gap-4 p-4 rounded-lg border border-rule-line hover:border-accent-ochre hover:bg-bg-soft transition-all duration-300">
+                                <div class="w-9 h-9 flex-shrink-0 bg-accent-ochre/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-cloud text-accent-ochre text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-accent-ochre uppercase tracking-widest">Microsoft</p>
+                                    <p class="text-base font-bold text-primary-charcoal mt-0.5">AZ-900: Azure Fundamentals</p>
+                                </div>
                             </div>
-                             <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">CISCO NETWORKING ACADEMY</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">PCAP: Programming Essentials in Python</h4>
+                            <div class="scroll-reveal flex items-start gap-4 p-4 rounded-lg border border-rule-line hover:border-accent-ochre hover:bg-bg-soft transition-all duration-300">
+                                <div class="w-9 h-9 flex-shrink-0 bg-accent-ochre/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-robot text-accent-ochre text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-accent-ochre uppercase tracking-widest">NASBA &amp; LinkedIn Learning</p>
+                                    <p class="text-base font-bold text-primary-charcoal mt-0.5">Generative AI: Working with Large Language Models</p>
+                                </div>
                             </div>
-                            <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">COURSERA</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">
-                                    <a href="https://www.coursera.org/account/accomplishments/verify/DHL7Z3VDD96C" target="_blank" class="hover:text-accent-ochre transition-colors duration-300">AI for Everyone <i class="fas fa-link text-xs ml-1 opacity-70"></i></a>
-                                </h4>
+                            <div class="scroll-reveal flex items-start gap-4 p-4 rounded-lg border border-rule-line hover:border-accent-ochre hover:bg-bg-soft transition-all duration-300">
+                                <div class="w-9 h-9 flex-shrink-0 bg-accent-ochre/10 rounded-lg flex items-center justify-center">
+                                    <i class="fab fa-docker text-accent-ochre text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-accent-ochre uppercase tracking-widest">Docker &amp; LinkedIn</p>
+                                    <a href="https://www.linkedin.com/learning/certificates/eb103cef361f6d528bfa297c6d730fb6579041cb4dc626e91377a9269aca1e39?u=2218586" target="_blank" class="text-base font-bold text-primary-charcoal mt-0.5 hover:text-accent-ochre transition-colors duration-300 flex items-center gap-1">
+                                        Docker Foundations Professional <i class="fas fa-external-link-alt text-xs opacity-60"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="scroll-reveal flex items-start gap-4 p-4 rounded-lg border border-rule-line hover:border-accent-ochre hover:bg-bg-soft transition-all duration-300">
+                                <div class="w-9 h-9 flex-shrink-0 bg-accent-ochre/10 rounded-lg flex items-center justify-center">
+                                    <i class="fab fa-microsoft text-accent-ochre text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-accent-ochre uppercase tracking-widest">Microsoft &amp; LinkedIn</p>
+                                    <a href="https://www.linkedin.com/learning/certificates/0a5fb95f1f2ab199e4ba32cbd91c56f8d8ba092a44026604ef8aa4b12d11a428?u=2218586" target="_blank" class="text-base font-bold text-primary-charcoal mt-0.5 hover:text-accent-ochre transition-colors duration-300 flex items-center gap-1">
+                                        Career Essentials in Software Development <i class="fas fa-external-link-alt text-xs opacity-60"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 mt-12 border-t border-rule-line">
                     <div class="py-8 scroll-reveal" style="transition-delay: 200ms;">
-                        <h3 class="text-3xl font-black text-primary-charcoal mb-8 border-b-2 border-accent-ochre inline-block pb-2">PUBLICATIONS</h3>
-                        <div class="space-y-6">
-                            <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">SPRINGER PUBLICATION (2023)</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Fabric Defect Segmentation (DCNN)</h4>
-                                <p class="text-text-secondary text-base">From IPDIMS 2023 Conference.</p>
+                        <h3 class="text-3xl font-black text-primary-charcoal mb-8 border-b-2 border-accent-ochre inline-block pb-2">EXPERIENCE</h3>
+                        <div class="relative pl-8 border-l-2 border-rule-line space-y-10">
+                            <div class="relative scroll-reveal">
+                                <div class="absolute -left-[43px] top-1 w-5 h-5 bg-accent-ochre rounded-full border-4 border-bg-light"></div>
+                                <p class="text-sm font-semibold text-accent-ochre uppercase tracking-wider">AWS Cloud Virtual Internship</p>
+                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Cloud Architecture & Foundations</h4>
+                                <p class="text-text-secondary text-base mt-1 leading-relaxed">Gained hands-on exposure to EC2, S3, and IAM. Worked on cloud deployment, storage, security, and scalability through practical tasks.</p>
                             </div>
-                            <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">IJIRT JOURNAL (2024)</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">
-                                    <a href="http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210" target="_blank" class="hover:text-accent-ochre transition-colors duration-300">Public Relationships using NLP and ML <i class="fas fa-link text-xs ml-1 opacity-70"></i></a>
-                                </h4>
-                                <p class="text-text-secondary text-base">Co-authored research on sentiment analysis.</p>
+                            <div class="relative scroll-reveal">
+                                <div class="absolute -left-[43px] top-1 w-5 h-5 bg-bg-soft border-2 border-accent-ochre rounded-full"></div>
+                                <p class="text-sm font-semibold text-accent-ochre uppercase tracking-wider">Data Analytics Virtual Internship</p>
+                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Data Cleaning, Analysis & Visualization</h4>
+                                <p class="text-text-secondary text-base mt-1 leading-relaxed">Performed data cleaning and preprocessing using Excel and Python. Created visualizations and reports to identify trends and extract meaningful insights.</p>
                             </div>
                         </div>
                     </div>
-                     <div class="py-8 scroll-reveal" style="transition-delay: 300ms;">
-                        <h3 class="text-3xl font-black text-primary-charcoal mb-8 border-b-2 border-accent-ochre inline-block pb-2">PRACTICAL EXPERIENCE</h3>
+
+                    <div class="py-8 scroll-reveal" style="transition-delay: 300ms;">
+                        <h3 class="text-3xl font-black text-primary-charcoal mb-8 border-b-2 border-accent-ochre inline-block pb-2">ACHIEVEMENTS</h3>
                         <div class="space-y-6">
-                             <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">VIRTUAL INTERNSHIPS (AWS)</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Cloud Architecture & Data Analytics</h4>
-                                <p class="text-text-secondary text-base">AWS via AICTE GOVT OF INDIA. Focused on cloud foundations.</p>
+
+                            <div class="scroll-reveal pl-5 border-l-4 border-accent-ochre">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-xs font-black bg-accent-ochre text-gray-900 px-2.5 py-0.5 rounded-full uppercase tracking-wide">Academic</span>
+                                    <span class="text-xs text-text-secondary">Humber College · 2025</span>
+                                </div>
+                                <h4 class="text-xl font-black text-primary-charcoal">Dean's Honour List</h4>
+                                <p class="text-text-secondary text-base mt-1">Awarded for academic excellence in both Semester 1 &amp; Semester 2, 2025</p>
                             </div>
-                             <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">WORKSHOP: IOT SYSTEM DESIGN</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">IoT-based Women's Safety Device</h4>
+
+                            <div class="scroll-reveal pl-5 border-l-4 border-accent-ochre">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-xs font-black bg-accent-ochre text-gray-900 px-2.5 py-0.5 rounded-full uppercase tracking-wide">Hackathon · 2nd Prize</span>
+                                    <span class="text-xs text-text-secondary">2025</span>
+                                </div>
+                                <h4 class="text-xl font-black text-primary-charcoal">Alberta AI Gateway</h4>
+                                <p class="text-text-secondary text-base mt-1">AI &amp; XR Powered Smart Tourism Platform — built &amp; led a team in a 3-day hackathon</p>
+                                <div class="flex items-center gap-4 mt-2">
+                                    <a href="https://alberta-ai-gateway.vercel.app/" target="_blank" class="text-accent-ochre text-sm font-bold hover:underline inline-flex items-center gap-1">
+                                        Live Demo <i class="fas fa-external-link-alt text-xs"></i>
+                                    </a>
+                                    <a href="https://github.com/Tarunk1109/alberta-ai-gateway" target="_blank" class="text-text-secondary text-sm font-semibold hover:text-accent-ochre transition-colors inline-flex items-center gap-1">
+                                        <i class="fab fa-github"></i> Repo
+                                    </a>
+                                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7405048889361350656/" target="_blank" class="text-text-secondary text-sm font-semibold hover:text-accent-ochre transition-colors inline-flex items-center gap-1">
+                                        <i class="fab fa-linkedin-in"></i> Organizers' Post
+                                    </a>
+                                </div>
                             </div>
-                            <div class="scroll-reveal">
-                                <p class="text-sm font-semibold text-accent-ochre">WORKSHOP: DATA VISUALIZATION</p>
-                                <h4 class="text-xl font-bold text-primary-charcoal mt-1">Tableau and PowerBI Experience</h4>
+
+                            <div class="scroll-reveal pl-5 border-l-4 border-rule-line">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-xs font-bold text-accent-ochre uppercase tracking-wide">Publication</span>
+                                    <span class="text-xs text-text-secondary">IJCRT · 2024</span>
+                                </div>
+                                <a href="http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210" target="_blank" class="text-xl font-black text-primary-charcoal hover:text-accent-ochre transition-colors duration-300 inline-flex items-center gap-1.5">
+                                    Public Relationships using NLP &amp; ML <i class="fas fa-external-link-alt text-xs opacity-60"></i>
+                                </a>
+                                <p class="text-text-secondary text-base mt-1">Sentiment analysis using Logistic Regression &amp; Naive Bayes — IJCRT journal</p>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -563,11 +789,11 @@
             </a>
             
             <div class="flex justify-center space-x-8 mt-16 text-3xl scroll-reveal" style="transition-delay: 300ms;">
-                <a href="https://linkedin.com/in/tarun-karnati-84a95623b" target="_blank" class="text-white hover:text-accent-ochre transition-colors duration-300"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://linkedin.com/in/tarunkarnati" target="_blank" class="text-white hover:text-accent-ochre transition-colors duration-300"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/Tarunk1109" target="_blank" class="text-white hover:text-accent-ochre transition-colors duration-300"><i class="fab fa-github"></i></a>
             </div>
             
-            <p class="text-xs text-gray-500 mt-12">&copy; 2025 Tarun Karnati. All Rights Reserved.</p>
+            <p class="text-xs text-gray-500 mt-12">&copy; 2026 Tarun Karnati. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -604,6 +830,39 @@
         </div>
     </div>
     
+    <!-- ORCA AI MODAL -->
+    <div id="orca-modal" class="fixed inset-0 z-[100] hidden modal-backdrop items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-bg-light text-text-default rounded-xl shadow-2xl p-6 md:p-8 w-full max-w-2xl transform transition-all duration-300 scale-95 opacity-0" id="orca-modal-content">
+            <div class="flex justify-between items-center border-b pb-4 mb-4 border-rule-line">
+                <h3 class="text-2xl md:text-3xl font-black text-primary-charcoal">ORCA AI Project Details</h3>
+                <button onclick="closeOrcaModal()" class="text-3xl text-text-secondary hover:text-accent-ochre focus:outline-none transition-colors">&times;</button>
+            </div>
+            <div>
+                <p class="text-lg font-bold text-accent-ochre mb-3">ORCA AI – MCP-Based AI DevOps Automation Platform</p>
+                <p class="text-text-secondary leading-relaxed mb-4">
+                    Built an autonomous development system using the Model Context Protocol (MCP) to orchestrate multiple tools and AI agents. Integrated MCP clients for browser testing, deployment, GitHub automation, and shell execution in a unified workflow.
+                </p>
+                <p class="text-text-secondary leading-relaxed mb-4">
+                    Developed multi-model AI orchestration using OpenAI, Anthropic, and Google with intelligent fallback handling. Implemented a self-healing pipeline where AI detects errors and automatically fixes generated code. Enabled end-to-end automation from prompt → code generation → deployment on Railway with live validation.
+                </p>
+                <div class="border-t pt-4 border-rule-line">
+                    <p class="text-base font-semibold text-primary-charcoal mb-3">Links &amp; Technologies:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://github.com/Tarunk1109/orca_ai" target="_blank" class="text-sm inline-flex items-center gap-2 font-bold bg-primary-charcoal text-white px-4 py-2 rounded-md hover:bg-accent-ochre hover:text-primary-charcoal transition-all duration-300">
+                            <i class="fab fa-github"></i> GitHub Repository
+                        </a>
+                        <span class="text-sm font-medium bg-accent-ochre text-primary-charcoal px-4 py-2 rounded-md">Python</span>
+                        <span class="text-sm font-medium bg-accent-ochre text-primary-charcoal px-4 py-2 rounded-md">Flask</span>
+                        <span class="text-sm font-medium bg-accent-ochre text-primary-charcoal px-4 py-2 rounded-md">MCP</span>
+                        <span class="text-sm font-medium bg-accent-ochre text-primary-charcoal px-4 py-2 rounded-md">OpenAI</span>
+                        <span class="text-sm font-medium bg-accent-ochre text-primary-charcoal px-4 py-2 rounded-md">Anthropic</span>
+                        <span class="text-sm font-medium bg-accent-ochre text-primary-charcoal px-4 py-2 rounded-md">Railway</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- CHATBOT WIDGET -->
     <div id="chat-widget-container">
         <div id="chat-popup">
@@ -668,6 +927,8 @@
                         modalContent.style.transform = 'scale(1)';
                         modalContent.style.opacity = '1';
                     }, 10);
+                } else if (projectId === 'orca') {
+                    openOrcaModal();
                 }
             };
 
@@ -682,11 +943,43 @@
                 }, 300);
             };
 
+            const orcaModal = document.getElementById('orca-modal');
+            const orcaModalContent = document.getElementById('orca-modal-content');
+
+            window.openOrcaModal = function() {
+                document.body.style.overflow = 'hidden';
+                orcaModal.classList.remove('hidden');
+                orcaModal.classList.add('flex');
+                setTimeout(() => {
+                    orcaModal.style.opacity = '1';
+                    orcaModalContent.style.transform = 'scale(1)';
+                    orcaModalContent.style.opacity = '1';
+                }, 10);
+            };
+
+            window.closeOrcaModal = function() {
+                document.body.style.overflow = '';
+                orcaModal.style.opacity = '0';
+                orcaModalContent.style.transform = 'scale(0.95)';
+                orcaModalContent.style.opacity = '0';
+                setTimeout(() => {
+                    orcaModal.classList.add('hidden');
+                    orcaModal.classList.remove('flex');
+                }, 300);
+            };
+
+            orcaModal.addEventListener('click', (e) => {
+                if (e.target === orcaModal) closeOrcaModal();
+            });
+
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) closeModal();
             });
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal.classList.contains('flex')) closeModal();
+                if (e.key === 'Escape') {
+                    if (modal.classList.contains('flex')) closeModal();
+                    if (orcaModal.classList.contains('flex')) closeOrcaModal();
+                }
             });
 
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');

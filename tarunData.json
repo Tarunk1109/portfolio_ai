@@ -2,7 +2,7 @@
   "knowledge_base": [
     {
       "topic": "chatbot_identity",
-      "content": "I am TK-Bot, Tarun Karnati’s personal AI assistant. I provide fast, friendly, and confident information about his background, projects, skills, and achievements to recruiters and visitors. My responses are based on verified professional data about Tarun."
+      "content": "I am TK-Bot, Tarun Karnati's personal AI assistant. I provide fast, friendly, and confident information about his background, projects, skills, and achievements to recruiters and visitors. My responses are based on verified professional data about Tarun."
     },
     {
       "topic": "chatbot_personality",
@@ -10,15 +10,15 @@
     },
     {
       "topic": "contact",
-      "content": "The best way to contact Tarun is by email at tarunk1109@gmail.com. You can also connect with him on LinkedIn at https://linkedin.com/in/tarun-karnati-84a95623b and view his work on GitHub at https://github.com/Tarunk1109."
+      "content": "The best way to contact Tarun is by email at tarunk1109@gmail.com or by phone at +1 (647) 883-2660. You can also connect with him on LinkedIn at https://linkedin.com/in/tarunkarnati and view his work on GitHub at https://github.com/Tarunk1109. His portfolio is live at abouttarun.me."
     },
     {
       "topic": "resume",
-      "content": "A downloadable PDF of Tarun’s resume is available directly on his portfolio website. You can find the link on the main page."
+      "content": "A downloadable PDF of Tarun's resume is available directly on his portfolio website. You can find the link on the main page."
     },
     {
       "topic": "career_objective",
-      "content": "Tarun is actively seeking full-time and co-op roles in Software Development and Full-Stack Engineering. He aims to work on innovative, scalable, and AI-driven products that make a real-world impact."
+      "content": "Tarun is an aspiring full-stack developer passionate about building scalable applications and intelligent, data-driven systems. He is experienced in developing end-to-end solutions across frontend, backend, databases, and cloud platforms. He is actively seeking full-time and co-op roles in Software Development and Full-Stack Engineering."
     },
     {
       "topic": "career_goal",
@@ -30,55 +30,55 @@
     },
     {
       "topic": "professional_summary",
-      "content": "Tarun Karnati is a Full-Stack Developer based in Toronto, Canada. He builds robust and intelligent applications that blend software engineering with AI. With strong command over Java, Spring Boot, and modern JavaScript frameworks, Tarun delivers solutions that are scalable, secure, and efficient."
+      "content": "Tarun Karnati is a Full-Stack Developer based in Toronto, Canada. He builds robust and intelligent applications that blend software engineering with AI. With strong command over Python, Flask, Java, Spring Boot, and modern JavaScript frameworks, Tarun delivers end-to-end solutions that are scalable, secure, and efficient. He has experience with MCP, LLM integration, and cloud platforms including Microsoft Azure."
     },
     {
       "topic": "education",
-      "content": "Tarun is pursuing a Postgraduate Certificate in Information Technology Solutions at Humber College (2025–2026), where he made the Dean’s Honour List in his first and second semesters. He also holds a Bachelor’s in Computer Science from SRK Institute of Technology, India (2020–2024), with a specialization in Data Science."
+      "content": "Tarun is pursuing a Postgraduate Certificate in Information Technology Solutions at Humber College (2025–2026), where he earned the Dean's Honour List in both Semester 1 and Semester 2 of 2025. He also holds a Bachelor of Technology in Data Science from SRK Institute of Technology, India (2020–2024)."
     },
     {
       "topic": "skills",
-      "content": "Tarun’s technical skills include Java, Python, JavaScript, C, HTML5, CSS3, SQL, and Bash. He is experienced with frameworks like Spring Boot, Node.js, and Express.js, and databases such as MongoDB and MySQL. He uses Docker, Git, GitHub, and Postman for deployment and testing. In AI, he works with OpenAI APIs, LangChain, and Retrieval-Augmented Generation (RAG) systems."
+      "content": "Tarun's technical skills include: Languages — C, Java, Python, JavaScript, HTML5, CSS3, SQL, Bash. Frameworks & APIs — Flask, Spring Boot, Node.js, Express.js, RESTful APIs. Databases — MongoDB, MySQL. AI — MCP, LLM Integration, AI Chatbot Development, Fine-Tuning, RAG, LangChain, OpenAI API, Hugging Face. Cloud & DevOps — Microsoft Azure, Docker, Render, Netlify, Railway. Tools — Git, Postman. Machine Learning — scikit-learn, TensorFlow, Pandas, NumPy, Supervised & Unsupervised Learning, Regression, Classification, Clustering, Feature Engineering, Model Evaluation (Precision, Recall, F1-score)."
     },
     {
       "topic": "tools_and_technologies",
-      "content": "Tarun is proficient in IntelliJ IDEA, VS Code, Eclipse, Postman, Figma, MySQL Workbench, and MongoDB Compass. He also has experience deploying web applications using Netlify, Render, and Heroku."
+      "content": "Tarun uses Git and Postman as his primary development tools. For cloud and deployment, he works with Microsoft Azure, Docker, Render, Netlify, and Railway. He is experienced in deploying full-stack applications end-to-end."
     },
     {
       "topic": "domains_of_interest",
-      "content": "His main domains of interest include Full-Stack Web Development, Generative AI, Cloud Integration (AWS, Azure), DevOps (CI/CD pipelines), and Intelligent Automation Systems."
+      "content": "His main domains of interest include Full-Stack Web Development, Generative AI, MCP and LLM Integration, Cloud Platforms (Azure, AWS), DevOps Automation, and Intelligent Systems."
     },
     {
       "topic": "projects",
-      "content": "Tarun has developed several impactful projects: 1) Perkpal — a full-stack web app offering personalized discounts based on user categories like students and seniors, built using Spring Boot, MongoDB, and JavaScript. 2) IoT Women’s Safety Device — a GPS-based real-time alert system for emergency tracking, integrating hardware and Python programming. 3) NLP Sentiment Analysis — an AI system that analyzed thousands of product reviews to extract insights, published in the IJCRT journal. 4) Fabric Defect Detection (DCNN) — a deep learning project on defect segmentation, published by Springer. Each project showcases Tarun’s end-to-end development skills, from backend design to frontend deployment."
+      "content": "Tarun has developed several impactful projects: 1) ORCA AI — an MCP-based AI DevOps automation platform built with Python, Flask, and multi-LLM orchestration (OpenAI, Anthropic, Google). It features a self-healing pipeline that detects and fixes errors automatically, with end-to-end deployment on Railway. 2) PerkPal — a full-stack web app delivering targeted discounts for students, seniors, LGBTQ+, and other communities, built using Spring Boot, MongoDB, and JavaScript. 3) Public Relationships Using NLP and ML — an NLP-based sentiment analysis model using Logistic Regression and Naive Bayes to classify product reviews, published in IJCRT 2024. 4) Alberta AI Gateway — a 2nd-prize winning hackathon project, a full-stack AI platform (React, Node.js, Express) integrating Whisper, Gemini/GPT, Ticketmaster API, OpenWeather API, and XR features."
     },
     {
       "topic": "project_repositories",
-      "content": "Perkpal GitHub repo: https://github.com/Tarunk1109/PerkPal. Other projects and code samples are also available on Tarun’s GitHub profile."
+      "content": "PerkPal GitHub repo: https://github.com/Tarunk1109/PerkPal. Alberta AI Gateway live demo: https://alberta-ai-gateway.vercel.app/. Other projects are available on Tarun's GitHub profile at https://github.com/Tarunk1109."
     },
     {
       "topic": "publications",
-      "content": "Tarun has two publications — one titled 'Fabric Defect Segmentation (DCNN)' presented at the IPDIMS 2023 Conference and published by Springer, and another on 'Sentiment Analysis Using NLP' published in the IJCRT journal: http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210."
+      "content": "Tarun has a publication titled 'Public Relationships Using NLP and Machine Learning' published in the International Journal of Creative Research Thoughts (IJCRT), 2024. The paper leverages Logistic Regression and Naive Bayes to analyze online product reviews and extract customer sentiment. Link: http://ijcrt.org/viewfull.php?&p_id=IJCRT2405210."
     },
     {
       "topic": "certifications",
-      "content": "Tarun holds multiple certifications, including: 1) Docker Foundations Professional (LinkedIn Learning), 2) Career Essentials in Software Development (Microsoft + LinkedIn Learning), 3) PCAP: Programming Essentials in Python (Cisco Networking Academy), and 4) AI for Everyone (Coursera). These certifications validate his skills in Python, AI, and software development best practices."
+      "content": "Tarun holds multiple certifications: 1) Introduction to Model Context Protocol — Anthropic, 2) Microsoft AZ-900: Azure Fundamentals — Microsoft, 3) Generative AI: Working with Large Language Models — NASBA and LinkedIn Learning, 4) Docker Foundations Professional Certificate — LinkedIn Learning & Docker, 5) Career Essentials in Software Development — Microsoft and LinkedIn Learning."
     },
     {
       "topic": "experience",
-      "content": "Tarun has hands-on experience through a virtual AWS internship focused on cloud architecture and data analytics. He also attended workshops on IoT System Design and Data Visualization with Tableau and Power BI."
+      "content": "Tarun has hands-on professional experience through two virtual internships: 1) AWS Cloud Virtual Internship — gained exposure to EC2, S3, and IAM, learned cloud deployment, storage, security, and scalability. 2) Data Analytics Virtual Internship — performed data cleaning, preprocessing, and analysis using Excel and Python; created visualizations and reports to extract insights from datasets."
     },
     {
       "topic": "achievements",
-      "content": "He earned a place on Humber College’s Dean’s Honour List for two consecutive semesters and successfully published two research papers during his undergrad. He has also been recognized for leadership in team-based tech projects and consistent academic excellence."
+      "content": "Tarun earned a place on Humber College's Dean's Honour List for both Semester 1 and Semester 2 of 2025. He won 2nd Prize at the Alberta AI Gateway Hackathon. He has published research in IJCRT and was recognized for technical leadership in team-based projects."
     },
     {
-      "topic": "leadership_example",
-      "content": "As the team lead for the IoT Women’s Safety Device project, Tarun coordinated a team of four, managing hardware-software integration and debugging complex GPS issues under tight deadlines."
+      "topic": "hackathon",
+      "content": "Tarun won 2nd Prize at the Alberta AI Gateway Hackathon — AI & XR Powered Smart Tourism Platform. He built and led a full-stack AI platform in a 3-day hackathon using React, Node.js, and Express, connecting Alberta globally across tourism, trade, culture, and education. He integrated Whisper (speech-to-text), Gemini/GPT, Text-to-Speech, Ticketmaster API, OpenWeather API, and immersive XR with 3D models. Live at https://alberta-ai-gateway.vercel.app/."
     },
     {
       "topic": "strengths",
-      "content": "Tarun’s key strengths include strong analytical thinking, adaptability, and a deep interest in AI-driven innovation. He is highly collaborative, quick to learn new technologies, and excels at breaking down complex problems into clear, efficient solutions."
+      "content": "Tarun's key strengths include strong analytical thinking, adaptability, and a deep interest in AI-driven innovation. He is highly collaborative, quick to learn new technologies, and excels at breaking down complex problems into clear, efficient solutions."
     },
     {
       "topic": "values",
@@ -90,7 +90,7 @@
     },
     {
       "topic": "portfolio_features",
-      "content": "Tarun’s portfolio website showcases his personality and technical skills. It includes light/dark mode, smooth animations, and TK-Bot — an interactive AI chatbot that provides information about him to visitors and recruiters."
+      "content": "Tarun's portfolio website showcases his personality and technical skills. It includes light/dark mode, smooth animations, and TK-Bot — an interactive AI chatbot that provides information about him to visitors and recruiters. Live at abouttarun.me."
     },
     {
       "topic": "personal_interests",
@@ -98,29 +98,29 @@
     },
     {
       "topic": "future_vision",
-      "content": "Tarun envisions building AI-powered platforms that improve daily life — combining full-stack systems, intelligent automation, and cloud technology to create user-focused digital experiences."
+      "content": "Tarun envisions building AI-powered platforms that improve daily life — combining full-stack systems, intelligent automation, MCP orchestration, and cloud technology to create user-focused digital experiences."
     }
   ],
   "recruiter_questions": [
     {
       "question": "Why should we hire you?",
-      "answer": "You should hire Tarun because he combines strong full-stack development skills with AI and cloud knowledge. He’s not just technically capable — he’s a problem solver who builds efficient, real-world solutions fast and learns new tools quickly."
+      "answer": "You should hire Tarun because he combines strong full-stack development skills with deep AI and cloud knowledge. He's built autonomous systems using MCP, won hackathons, and shipped real products end-to-end. He's not just technically capable — he's a problem solver who builds efficient, real-world solutions fast."
     },
     {
       "question": "What makes you unique?",
-      "answer": "Tarun stands out for his ability to merge AI and full-stack development to create user-focused, smart systems. He writes clean, modular code and thinks about the big picture — scalability, security, and user experience."
+      "answer": "Tarun stands out for his ability to build autonomous AI systems — not just use AI tools, but orchestrate them with MCP. He combines full-stack engineering with machine learning and cloud deployment, thinking about scalability, security, and user experience together."
     },
     {
-      "question": "What’s your favorite project?",
-      "answer": "Tarun’s favorite project is Perkpal — a personalized offers platform he designed end-to-end using Spring Boot, MongoDB, and JavaScript. It combined user categorization, AI thinking, and smooth UI — a perfect mix of creativity and backend logic."
+      "question": "What's your favorite project?",
+      "answer": "Tarun's most exciting project is ORCA AI — an MCP-based DevOps automation platform where AI agents orchestrate code generation, testing, and deployment end-to-end with self-healing pipelines. It's the perfect intersection of AI, automation, and full-stack engineering."
     },
     {
       "question": "Where do you see yourself in 5 years?",
-      "answer": "In five years, Tarun sees himself as a Lead Software Engineer or Solutions Architect, building scalable systems that integrate AI, cloud, and full-stack development."
+      "answer": "In five years, Tarun sees himself as a Lead Software Engineer or Solutions Architect, building scalable systems that deeply integrate AI, cloud, and full-stack development to solve meaningful real-world problems."
     },
     {
       "question": "What are your biggest strengths?",
-      "answer": "Adaptability, curiosity, and analytical thinking. Tarun learns fast, communicates clearly, and has the drive to build things that actually make a difference."
+      "answer": "Adaptability, curiosity, and analytical thinking. Tarun learns fast, communicates clearly, and has the drive to build things that actually make a difference — from hackathon wins to published research."
     },
     {
       "question": "What are your career goals?",
@@ -136,7 +136,7 @@
     },
     {
       "question": "Do you work well in teams?",
-      "answer": "Yes, Tarun thrives in collaborative environments. He believes good communication, mutual respect, and shared accountability turn a group of coders into an engineering team."
+      "answer": "Yes, Tarun thrives in collaborative environments. He's led teams in hackathons and academic projects. He believes good communication, mutual respect, and shared accountability turn a group of coders into an engineering team."
     }
   ]
 }
