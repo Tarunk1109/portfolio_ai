@@ -55,6 +55,8 @@ app.use(express.json());
 app.get('/', (req, res) => res.sendFile(fileURLToPath(new URL('./index.html', import.meta.url))));
 app.get('/index.html', (req, res) => res.sendFile(fileURLToPath(new URL('./index.html', import.meta.url))));
 app.get('/resume.pdf', (req, res) => res.sendFile(fileURLToPath(new URL('./resume.pdf', import.meta.url))));
+app.get('/portfolio.css', (req, res) => res.sendFile(fileURLToPath(new URL('./portfolio.css', import.meta.url))));
+app.get('/portfolio.js', (req, res) => res.sendFile(fileURLToPath(new URL('./portfolio.js', import.meta.url))));
 app.get('/health', (req, res) => res.json({
   status: 'ok',
   chatbot: extractor && personalEmbeddings ? 'ready' : 'unavailable',
