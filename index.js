@@ -2,21 +2,22 @@ import express from 'express';
 import cors from 'cors';
 import { pipeline } from '@xenova/transformers';
 import fs from 'fs/promises';
+import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
 import 'dotenv/config';
 
 // --- CONFIGURATION ---
 const app = express();
-const port = 3000;
+const port = Number(process.env.PORT || 3000);
 const modelName = 'Xenova/all-MiniLM-L6-v2';
-const embeddingsFile = 'tarunEmbeddings.json';
+const embeddingsFile = new URL('./tarunEmbeddings.json', import.meta.url);
 
 // --- STATE ---
 let personalEmbeddings; 
 let extractor;
 
 // Initialize OpenAI client (it will automatically pick up the key from .env)
-const openai = new OpenAI();
+const openai = process.env.OPENAI_API_KEY?.trim() ? new OpenAI() : null;
 
 
 // --- UTILITY FUNCTIONS ---
@@ -50,11 +51,24 @@ function findTopNMatches(queryEmbedding, dataEmbeddings, n = 3) {
 app.use(cors());
 app.use(express.json());
 
-app.post('/chat', async (req, res) => {
-  const { question } = req.body;
+// Serve only public assets, never .env or other repository files.
+app.get('/', (req, res) => res.sendFile(fileURLToPath(new URL('./index.html', import.meta.url))));
+app.get('/index.html', (req, res) => res.sendFile(fileURLToPath(new URL('./index.html', import.meta.url))));
+app.get('/resume.pdf', (req, res) => res.sendFile(fileURLToPath(new URL('./resume.pdf', import.meta.url))));
+app.get('/health', (req, res) => res.json({
+  status: 'ok',
+  chatbot: extractor && personalEmbeddings ? 'ready' : 'unavailable',
+}));
 
-  if (!question) {
+app.post('/chat', async (req, res) => {
+  const { question } = req.body || {};
+
+  if (typeof question !== 'string' || !question.trim()) {
     return res.status(400).json({ error: 'Question is required' });
+  }
+
+  if (!extractor || !personalEmbeddings) {
+    return res.status(503).json({ error: 'Chatbot is loading or unavailable. Please try again later.' });
   }
 
   try {
@@ -69,7 +83,7 @@ app.post('/chat', async (req, res) => {
     // --- CHATBOT LOGIC ---
 
     // Check if the OpenAI API key is available
-    if (!process.env.OPENAI_API_KEY) {
+    if (!openai) {
       // If no API key, return a simulated response for testing
       console.log("No OpenAI key found. Returning simulated response.");
       const simulatedResponse = `(Simulated Response) I found some relevant information for your question: "${question}".\n\nContext Found:\n${context}`;
@@ -77,7 +91,7 @@ app.post('/chat', async (req, res) => {
     }
 
     // 3. If API key exists, call OpenAI to generate a real answer
-    const systemPrompt = `You are a friendly and professional AI assistant named TK-Bot for Tarun Karnati's portfolio. Use the provided context to answer questions about him. If the answer isn’t directly available, make a reasonable, concise, and helpful response based on what you know. Never say “I don’t have that information” — instead, provide the closest relevant details. Always sound confident, human-like, and polite.`;
+    const systemPrompt = `You are a friendly and professional AI assistant named TK-Bot for Tarun Karnati's portfolio. Use the provided context to answer questions about him. Use only facts in the provided context. If a detail is unavailable, say that it is not documented. Preserve project status and distinguish simulated data, prototypes, academic work, and sandbox transactions from production use. Do not invent metrics or employment. Be concise, friendly, and professional.`;
     
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini", 
@@ -99,6 +113,13 @@ app.post('/chat', async (req, res) => {
 
 // --- SERVER INITIALIZATION ---
 async function startServer() {
+  // Keep the portfolio available even while the model downloads or fails.
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  }).on('error', error => {
+    console.error('Failed to listen:', error);
+    process.exit(1);
+  });
   try {
     console.log('Loading AI model and personal data...');
     // Load the feature extraction model
@@ -108,9 +129,7 @@ async function startServer() {
     personalEmbeddings = JSON.parse(embeddingsData);
     console.log('✅ Model and data loaded successfully.');
     
-    app.listen(port, () => {
-      console.log(`🚀 Server is running on http://localhost:${port}`);
-    });
+
   } catch (error) {
     console.error('Failed to initialize server:', error);
   }

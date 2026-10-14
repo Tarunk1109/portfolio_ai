@@ -10,15 +10,11 @@
     },
     {
       "topic": "contact",
-      "content": "The best way to contact Tarun is by email at tarunk1109@gmail.com or by phone at +1 (647) 883-2660. You can also connect with him on LinkedIn at https://linkedin.com/in/tarunkarnati and view his work on GitHub at https://github.com/Tarunk1109. His portfolio is live at abouttarun.me."
+      "content": "The best way to contact Tarun is by email at tarunk1109@gmail.com or by phone at +1 (647) 883-2660. You can also connect with him on LinkedIn at https://linkedin.com/in/tarunkarnati and view his work on GitHub at https://github.com/Tarunk1109. His portfolio is live at https://tarunk1109.github.io/portfolio_ai/."
     },
     {
       "topic": "resume",
       "content": "A downloadable PDF of Tarun's resume is available directly on his portfolio website. You can find the link on the main page."
-    },
-    {
-      "topic": "career_objective",
-      "content": "Tarun is an aspiring full-stack developer passionate about building scalable applications and intelligent, data-driven systems. He is experienced in developing end-to-end solutions across frontend, backend, databases, and cloud platforms. He is actively seeking full-time and co-op roles in Software Development and Full-Stack Engineering."
     },
     {
       "topic": "career_goal",
@@ -29,32 +25,8 @@
       "content": "Tarun is fully authorized to work in Canada and is open to both co-op and full-time opportunities."
     },
     {
-      "topic": "professional_summary",
-      "content": "Tarun Karnati is a Full-Stack Developer based in Toronto, Canada. He builds robust and intelligent applications that blend software engineering with AI. With strong command over Python, Flask, Java, Spring Boot, and modern JavaScript frameworks, Tarun delivers end-to-end solutions that are scalable, secure, and efficient. He has experience with MCP, LLM integration, and cloud platforms including Microsoft Azure."
-    },
-    {
-      "topic": "education",
-      "content": "Tarun is pursuing a Postgraduate Certificate in Information Technology Solutions at Humber College (2025–2026), where he earned the Dean's Honour List in both Semester 1 and Semester 2 of 2025. He also holds a Bachelor of Technology in Data Science from SRK Institute of Technology, India (2020–2024)."
-    },
-    {
-      "topic": "skills",
-      "content": "Tarun's technical skills include: Languages — C, Java, Python, JavaScript, HTML5, CSS3, SQL, Bash. Frameworks & APIs — Flask, Spring Boot, Node.js, Express.js, RESTful APIs. Databases — MongoDB, MySQL. AI — MCP, LLM Integration, AI Chatbot Development, Fine-Tuning, RAG, LangChain, OpenAI API, Hugging Face. Cloud & DevOps — Microsoft Azure, Docker, Render, Netlify, Railway. Tools — Git, Postman. Machine Learning — scikit-learn, TensorFlow, Pandas, NumPy, Supervised & Unsupervised Learning, Regression, Classification, Clustering, Feature Engineering, Model Evaluation (Precision, Recall, F1-score)."
-    },
-    {
-      "topic": "tools_and_technologies",
-      "content": "Tarun uses Git and Postman as his primary development tools. For cloud and deployment, he works with Microsoft Azure, Docker, Render, Netlify, and Railway. He is experienced in deploying full-stack applications end-to-end."
-    },
-    {
       "topic": "domains_of_interest",
       "content": "His main domains of interest include Full-Stack Web Development, Generative AI, MCP and LLM Integration, Cloud Platforms (Azure, AWS), DevOps Automation, and Intelligent Systems."
-    },
-    {
-      "topic": "projects",
-      "content": "Tarun has developed several impactful projects: 1) ORCA AI — an MCP-based AI DevOps automation platform built with Python, Flask, and multi-LLM orchestration (OpenAI, Anthropic, Google). It features a self-healing pipeline that detects and fixes errors automatically, with end-to-end deployment on Railway. 2) PerkPal — a full-stack web app delivering targeted discounts for students, seniors, LGBTQ+, and other communities, built using Spring Boot, MongoDB, and JavaScript. 3) Public Relationships Using NLP and ML — an NLP-based sentiment analysis model using Logistic Regression and Naive Bayes to classify product reviews, published in IJCRT 2024. 4) Alberta AI Gateway — a 2nd-prize winning hackathon project, a full-stack AI platform (React, Node.js, Express) integrating Whisper, Gemini/GPT, Ticketmaster API, OpenWeather API, and XR features."
-    },
-    {
-      "topic": "project_repositories",
-      "content": "PerkPal GitHub repo: https://github.com/Tarunk1109/PerkPal. Alberta AI Gateway live demo: https://alberta-ai-gateway.vercel.app/. Other projects are available on Tarun's GitHub profile at https://github.com/Tarunk1109."
     },
     {
       "topic": "publications",
@@ -63,18 +35,6 @@
     {
       "topic": "certifications",
       "content": "Tarun holds multiple certifications: 1) Introduction to Model Context Protocol — Anthropic, 2) Microsoft AZ-900: Azure Fundamentals — Microsoft, 3) Generative AI: Working with Large Language Models — NASBA and LinkedIn Learning, 4) Docker Foundations Professional Certificate — LinkedIn Learning & Docker, 5) Career Essentials in Software Development — Microsoft and LinkedIn Learning."
-    },
-    {
-      "topic": "experience",
-      "content": "Tarun has hands-on professional experience through two virtual internships: 1) AWS Cloud Virtual Internship — gained exposure to EC2, S3, and IAM, learned cloud deployment, storage, security, and scalability. 2) Data Analytics Virtual Internship — performed data cleaning, preprocessing, and analysis using Excel and Python; created visualizations and reports to extract insights from datasets."
-    },
-    {
-      "topic": "achievements",
-      "content": "Tarun earned a place on Humber College's Dean's Honour List for both Semester 1 and Semester 2 of 2025. He won 2nd Prize at the Alberta AI Gateway Hackathon. He has published research in IJCRT and was recognized for technical leadership in team-based projects."
-    },
-    {
-      "topic": "hackathon",
-      "content": "Tarun won 2nd Prize at the Alberta AI Gateway Hackathon — AI & XR Powered Smart Tourism Platform. He built and led a full-stack AI platform in a 3-day hackathon using React, Node.js, and Express, connecting Alberta globally across tourism, trade, culture, and education. He integrated Whisper (speech-to-text), Gemini/GPT, Text-to-Speech, Ticketmaster API, OpenWeather API, and immersive XR with 3D models. Live at https://alberta-ai-gateway.vercel.app/."
     },
     {
       "topic": "strengths",
@@ -90,7 +50,7 @@
     },
     {
       "topic": "portfolio_features",
-      "content": "Tarun's portfolio website showcases his personality and technical skills. It includes light/dark mode, smooth animations, and TK-Bot — an interactive AI chatbot that provides information about him to visitors and recruiters. Live at abouttarun.me."
+      "content": "Tarun's portfolio website showcases his personality and technical skills. It includes light/dark mode, smooth animations, and TK-Bot — an interactive AI chatbot that provides information about him to visitors and recruiters. Live at https://tarunk1109.github.io/portfolio_ai/."
     },
     {
       "topic": "personal_interests",
@@ -99,44 +59,91 @@
     {
       "topic": "future_vision",
       "content": "Tarun envisions building AI-powered platforms that improve daily life — combining full-stack systems, intelligent automation, MCP orchestration, and cloud technology to create user-focused digital experiences."
+    },
+    {
+      "topic": "projects",
+      "content": "Tarun’s documented projects are: EvenHub Edu, BakeOps, SENTINEL, Compass, AutoApply, MedSafe, FactoryVision, ContextOS, Speech Emotion Recognition, Jetson / Edge AI, SubGenie, FATHOM, AEOscope, ORCA AI, PerkPal, Alberta AI Gateway, Sentiment Analysis / NLP Research."
+    },
+    {
+      "topic": "professional_summary",
+      "content": "Tarun Karnati is a Toronto-based software and AI engineer, a recent Humber Information Technology Solutions graduate, and a four-time hackathon award recipient. His relevant experience includes a sponsor-supported academic capstone, not salaried software employment."
+    },
+    {
+      "topic": "education",
+      "content": "Completed postgraduate studies in Information Technology Solutions at Humber Polytechnic, January 2025–August 2026; bachelor’s degree in Data Science at SRK Institute of Technology, 2020–2024. Dean’s Honour List for all four Humber semesters, as confirmed by Tarun."
+    },
+    {
+      "topic": "hackathon",
+      "content": "BakeOps: second place, TMLS × FGF Brands Agentic Hackathon 2026. SENTINEL: Track 1 winner, Agnic.AI Agentic Commerce Pioneers 2026. FATHOM: second prize, MyChoice Ontario All-Quote Agent Challenge 2026. Alberta AI Gateway: second place, Brainstem Alliance Hackathon 2025. These are four awards, not four overall first-place wins."
+    },
+    {
+      "topic": "project_EvenHub Edu",
+      "content": "EvenHub Edu. A school-management platform with an AI assistant for parents, teachers, and administrators. Connects school documents, events, menus, and lunch orders in one portal. Status: Sponsor-supported capstone. Stack: React, Node.js, Firebase, Gemini, Cloud Run. Led a four-person Humber capstone for an external sponsor, delivered May–August 2026. Expanded a working sponsor prototype into a platform used by real people. Implemented document extraction, chunking, embedding retrieval, semantic reranking, role-aware context, and streamed answers. Read-only Gmail integration and tools connect the assistant to school workflows.  "
+    },
+    {
+      "topic": "project_BakeOps",
+      "content": "BakeOps. An AI command center for bakery operations. Routes equipment, supply-chain, and recipe scenarios to specialist agents and brings their recommendations into a live dashboard. Status: Hackathon prototype. Stack: Python, FastAPI, React, TypeScript, Claude. Built with Nanditha for the TMLS × FGF Brands Agentic Hackathon; second place in 2026. An orchestrator selects three specialists, runs selected work in parallel, then synthesizes the results. Includes SSE updates, label analysis, Open Food Facts, and Telegram alerts. Factory scenarios and dashboard telemetry are simulated; displayed savings are demonstration estimates. https://github.com/Tarunk1109/BakeOps "
+    },
+    {
+      "topic": "project_SENTINEL",
+      "content": "SENTINEL. A commerce assistant that turns requests and photos into evidence-backed product shortlists and live merchant quotes. A separate sandbox flow demonstrates checkout with explicit approval. Status: Commerce demo. Stack: Next.js, React, TypeScript, OpenAI, Agnic. Track 1 winner at Agnic.AI Agentic Commerce Pioneers 2026. Supports product requests, broken-part inspection, and reference-photo bills of materials. Server-side checks verify merchants, quotes, consent, and provider order status. Real-money purchasing is disabled. Checkout demonstrations use the payment provider’s sandbox; scheduling is runtime-only. https://github.com/Tarunk1109/Sentinel https://sentinel-taupe-two.vercel.app"
+    },
+    {
+      "topic": "project_Compass",
+      "content": "Compass. A Slack copilot for developer questions about microservices. Retrieves from OpenAPI specifications and documentation, cites its sources, and traces service dependencies. Status: Proof of concept. Stack: Python, LangGraph, Qdrant, Cohere, Slack. Combines dense retrieval with BM25, reciprocal-rank fusion, and reranking. Keeps API operations intact and uses dependency metadata for impact questions. Demonstrated against 12 synthetic payment-domain services. Conversation memory is in-process, and the current interface supports direct messages. https://github.com/Tarunk1109/compass-slack "
+    },
+    {
+      "topic": "project_AutoApply",
+      "content": "AutoApply. A job-discovery pipeline that collects listings, removes duplicates, applies practical filters, and ranks relevant opportunities with short AI explanations. Status: Local tool. Stack: Python, Claude, Firestore, pytest. Integrates Greenhouse, Lever, and Ashby listings. Applies cheap filters before model scoring, isolates adapter failures, and writes ranked results in batches. Working local pipeline with a console digest. It discovers and ranks jobs; it does not submit applications. Email delivery and scheduled cloud execution are not completed.  "
+    },
+    {
+      "topic": "project_MedSafe",
+      "content": "MedSafe. A medication-interaction explorer that combines a drug knowledge graph with a web interface to help users inspect relationships between medications. Status: Academic project. Stack: Next.js, TypeScript, Neo4j, PostgreSQL, GraphQL. Built with React, Neo4j Aura, Neon PostgreSQL, Prisma, and GraphQL Yoga. Includes authentication and AI integrations for explanations and image-based input. Academic software demonstration using interaction data. It is not clinically validated and should not be used to make treatment decisions.  https://medsafe-graph.vercel.app"
+    },
+    {
+      "topic": "project_FactoryVision",
+      "content": "FactoryVision. An image-quality inspection backend that connects a C# API to a Python vision service. Validates uploads, analyses visual quality, and stores inspection history. Status: API prototype. Stack: C# / .NET, FastAPI, OpenCV, SQLite, Docker. ASP.NET Core uses dependency injection and a configurable inference provider; EF Core persists metadata in SQLite. Includes Swagger, structured errors, xUnit, and pytest coverage. OpenCV measures brightness, contrast, and blur. This is a prototype heuristic, not a trained manufacturing-defect detector or a live factory integration. https://github.com/Tarunk1109/factoryvision-ai-api "
+    },
+    {
+      "topic": "project_ContextOS",
+      "content": "ContextOS. A memory-management layer for long-running LLM conversations. Keeps recent turns in hot memory, compresses older turns into summaries, and archives the original text. Status: Local prototype. Stack: Python, Claude, tiktoken, Streamlit. Tracks token usage and session cost, compresses older messages with Haiku, and displays memory state in a Streamlit dashboard. The completed core uses a file-based state exchange. Semantic cold-memory retrieval, checkpoint restoration, and RAG features are roadmap items. https://github.com/Tarunk1109/ContextOS "
+    },
+    {
+      "topic": "project_Speech Emotion Recognition",
+      "content": "Speech Emotion Recognition. An audio classifier for eight emotions. Compares an ANN, CNN, and CNN–Transformer, then averages their predictions in an ensemble with a Streamlit demo. Status: Academic ML project. Stack: Python, TensorFlow, Librosa, scikit-learn, Streamlit. Uses 4,240 RAVDESS and TESS speech clips, MFCC features, and Mel-spectrograms. A four-person academic submission with CNN implementation and project coordination among Tarun’s contributions. The project report records 92.3% ensemble accuracy on an 848-clip held-out test set. This is a clip-level split on acted speech; speaker-disjoint evaluation is not established. https://github.com/Tarunk1109/speech-emotion-recognition "
+    },
+    {
+      "topic": "project_Jetson / Edge AI",
+      "content": "Jetson / Edge AI. An object-detection pipeline exploring accelerated inference on an NVIDIA Jetson Orin Nano, bringing computer-vision workloads onto an edge device. Status: Edge-inference project. Stack: YOLOv8, PyTorch, ONNX, TensorRT, OpenCV. Uses model export and TensorRT FP16 optimisation, with Flask for a lightweight application interface. Focuses on deployment and inference acceleration. Hardware benchmark conditions are not documented here, so no throughput or latency claim is presented.  "
+    },
+    {
+      "topic": "project_SubGenie",
+      "content": "SubGenie. A subscription manager that tracks recurring costs and usage, calculates cost per use, and offers AI suggestions for cutting underused services or finding alternatives. Status: Academic web application. Stack: Node.js, Express, MongoDB, EJS, OpenAI. Includes authenticated subscription management, usage logs, analytics, and an AI advisor. A natural-language Telegram bot supports everyday tracking and reminders. MongoDB and Mongoose store user-scoped data; JWT and bcrypt support authentication. The interface uses server-rendered EJS, Tailwind, and Chart.js. https://github.com/Tarunk1109/Subgenie "
+    },
+    {
+      "topic": "project_FATHOM",
+      "content": "FATHOM. An evidence-first browser automation tool for researching Ontario auto-insurance journeys. Records observations and blocked steps through a deterministic action-policy gate. Status: Challenge prototype. Stack: Browser automation, Policy engine, Evidence logging. Second prize at the MyChoice Ontario All-Quote Agent Challenge 2026. Captures timestamped, redacted evidence and distinguishes refusals from unresolved attempts. No real insurer returned a price under the hypothetical profile in this build. Comparable price examples come from a labelled local sandbox; the tool does not purchase policies. https://github.com/Tarunk1109/fathom "
+    },
+    {
+      "topic": "project_AEOscope",
+      "content": "AEOscope. A website auditor for SEO and answer-engine readiness. Checks page structure, schema, and content clarity, then uses Claude to identify information gaps in a brand’s website. Status: CLI tool. Stack: Python, BeautifulSoup, Claude, Rich. Produces SEO and AEO scores, prioritised recommendations, and Markdown or JSON reports. A no-AI mode runs the rule-based checks without an API key. The AI perception report is a simulation based on supplied website content; it does not measure rankings or directly query every search engine. https://github.com/Tarunk1109/AEOscope "
+    },
+    {
+      "topic": "project_ORCA AI",
+      "content": "ORCA AI. A prompt-to-web-app workflow that generates code, writes project files, pushes to GitHub, deploys through Railway, and validates the result with a browser. Status: Development prototype. Stack: Python, Flask, Socket.IO, Playwright, Railway. Uses multiple AI providers with ordered fallback, an in-process event queue, and a dashboard for build stages and logs. A failed build can trigger one AI repair attempt. Tool adapters coordinate browser, GitHub, shell, and deployment work; this does not imply a production-grade recovery system. https://github.com/Tarunk1109/orca_ai "
+    },
+    {
+      "topic": "project_PerkPal",
+      "content": "PerkPal. A community-focused deals platform for discovering relevant offers by audience and category, with registration, login, personalised offer pages, and a wishlist interface. Status: Web application project. Stack: HTML / CSS, JavaScript, Spring Boot, MongoDB. Static frontend pages organise offers for students, seniors, and other communities. The personalised flow connects to a separate local backend API. Built as a web-development project. The public frontend repository is not a complete hosted full-stack service. https://github.com/Tarunk1109/PerkPal "
+    },
+    {
+      "topic": "project_Alberta AI Gateway",
+      "content": "Alberta AI Gateway. An AI-assisted tourism and travel platform for Alberta. Combines trip planning, conversational help, speech features, local events and weather, and interactive 3D content. Status: Hackathon project. Stack: React, Node.js, MongoDB, Whisper, Gemini. Second place at the Brainstem Alliance Hackathon 2025; built and led during a three-day sprint. React frontend and Express API integrate OpenAI, Gemini, Ticketmaster, and OpenWeather. JWT authentication and MongoDB support accounts and saved itineraries. https://github.com/Tarunk1109/alberta-ai-gateway https://alberta-ai-gateway.vercel.app/"
+    },
+    {
+      "topic": "project_Sentiment Analysis / NLP Research",
+      "content": "Sentiment Analysis / NLP Research. A product-review sentiment-classification study using Logistic Regression and Naive Bayes, published as “Public Relationships using NLP and Machine Learning.” Status: Published academic work. Stack: Python, scikit-learn, NLP. Published in IJCRT, volume 12, issue 5, May 2024. Tarun is a co-author of the academic paper. Explores classical machine-learning approaches to review classification. The paper link provides the research context and reported findings.  https://ijcrt.org/viewfull.php?p_id=IJCRT2405210"
     }
   ],
-  "recruiter_questions": [
-    {
-      "question": "Why should we hire you?",
-      "answer": "You should hire Tarun because he combines strong full-stack development skills with deep AI and cloud knowledge. He's built autonomous systems using MCP, won hackathons, and shipped real products end-to-end. He's not just technically capable — he's a problem solver who builds efficient, real-world solutions fast."
-    },
-    {
-      "question": "What makes you unique?",
-      "answer": "Tarun stands out for his ability to build autonomous AI systems — not just use AI tools, but orchestrate them with MCP. He combines full-stack engineering with machine learning and cloud deployment, thinking about scalability, security, and user experience together."
-    },
-    {
-      "question": "What's your favorite project?",
-      "answer": "Tarun's most exciting project is ORCA AI — an MCP-based DevOps automation platform where AI agents orchestrate code generation, testing, and deployment end-to-end with self-healing pipelines. It's the perfect intersection of AI, automation, and full-stack engineering."
-    },
-    {
-      "question": "Where do you see yourself in 5 years?",
-      "answer": "In five years, Tarun sees himself as a Lead Software Engineer or Solutions Architect, building scalable systems that deeply integrate AI, cloud, and full-stack development to solve meaningful real-world problems."
-    },
-    {
-      "question": "What are your biggest strengths?",
-      "answer": "Adaptability, curiosity, and analytical thinking. Tarun learns fast, communicates clearly, and has the drive to build things that actually make a difference — from hackathon wins to published research."
-    },
-    {
-      "question": "What are your career goals?",
-      "answer": "Tarun aims to work on intelligent software solutions that solve real-world problems. He wants to grow into a tech leader who builds products that merge AI, automation, and scalable design."
-    },
-    {
-      "question": "What motivates you to work in tech?",
-      "answer": "Tarun loves the process of turning logic into something people use daily. Building products that help or simplify life motivates him more than anything."
-    },
-    {
-      "question": "How do you handle challenges or bugs?",
-      "answer": "Tarun approaches bugs like puzzles — he breaks them down systematically, analyzes the cause, and tests multiple approaches. He enjoys debugging because it makes him a stronger developer each time."
-    },
-    {
-      "question": "Do you work well in teams?",
-      "answer": "Yes, Tarun thrives in collaborative environments. He's led teams in hackathons and academic projects. He believes good communication, mutual respect, and shared accountability turn a group of coders into an engineering team."
-    }
-  ]
+  "recruiter_questions": []
 }
