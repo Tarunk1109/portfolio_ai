@@ -17,7 +17,7 @@ Copy `.env.example` to `.env` to configure `PORT` or an optional `OPENAI_API_KEY
 
 - `index.html`: profile, skills, 17 visible project descriptions, inline implementation details, experience, education, awards, and contact links.
 - `portfolio.css`: responsive layout, readable typography, and light/dark colour themes.
-- `portfolio.js`: category filters, project search, theme switching, mobile navigation, and active navigation links.
+- `portfolio.js`: category filters, project search, theme switching, mobile navigation, active navigation links, staggered scroll entrances, reading progress, and a back-to-top control. Motion respects reduced-motion preferences, including changes made while the page is open.
 - `projects.json`: documented project inventory and public links.
 - `tarunData.json`: chatbot knowledge, including project scope and status.
 - `tarunEmbeddings.json`: generated retrieval vectors.

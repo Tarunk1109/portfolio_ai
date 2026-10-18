@@ -364,3 +364,55 @@ html[data-theme="dark"] .project-card[data-category="AI & agents"] { --project-a
 html[data-theme="dark"] .project-card[data-category="ML & vision"] { --project-accent: #b7d1f7; --project-soft: #29364b; }
 html[data-theme="dark"] .project-card[data-category="Automation"] { --project-accent: #ffb49b; --project-soft: #44302b; }
 html[data-theme="dark"] .project-card[data-category="Research"] { --project-accent: #f4d095; --project-soft: #463624; }
+
+/* Scroll feedback and small, tactile interactions. Content is always visible. */
+.reading-progress {
+  position: fixed; inset: 0 0 auto; height: 3px; z-index: 150;
+  background: linear-gradient(90deg, #80509d, #d8725b 55%, #58a58d);
+  transform: scaleX(0); transform-origin: left; pointer-events: none;
+}
+.site-header { transition: box-shadow .25s ease; }
+.site-header.is-scrolled { box-shadow: 0 5px 24px rgba(62, 35, 75, .09); }
+.hero::before {
+  background: radial-gradient(ellipse at 4% 20%, color-mix(in srgb, var(--peach) 85%, transparent), transparent 56%),
+    radial-gradient(ellipse at 92% 30%, color-mix(in srgb, var(--lavender) 65%, transparent), transparent 50%);
+  transform: translateY(var(--hero-drift, 0px));
+}
+.availability > span { position: relative; }
+.availability > span::after {
+  content: ''; position: absolute; inset: -5px; border: 1px solid currentColor;
+  border-radius: 50%; opacity: 0; animation: availability-ring 2s ease-out 3;
+}
+@keyframes availability-ring {
+  from { opacity: .65; scale: .4; }
+  to { opacity: 0; scale: 1.4; }
+}
+.button span, .social-links span, .skill-icon, .glance-icon {
+  display: inline-block; transition: transform .25s cubic-bezier(.22, 1, .36, 1);
+}
+.skill-icon, .glance-icon { display: grid; }
+.project-card { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.awards-grid article, .at-a-glance { transition: transform .3s ease, box-shadow .3s ease; }
+.back-to-top {
+  position: fixed; right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 90; display: grid; place-items: center; width: 46px; height: 46px;
+  border: 1px solid var(--line); border-radius: 50%; background: var(--surface);
+  color: var(--accent); box-shadow: var(--shadow); font-size: 23px;
+  transition: transform .2s, box-shadow .2s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover, .awards-grid article:hover { transform: translateY(-5px); box-shadow: 0 16px 38px rgba(62, 35, 75, .11); }
+  .at-a-glance:hover { transform: translateY(-3px); box-shadow: 0 16px 38px rgba(62, 35, 75, .1); }
+  .skills-grid article:hover .skill-icon { transform: translateY(-3px) rotate(-7deg); }
+  .glance-item:hover .glance-icon { transform: rotate(7deg); }
+  .button:hover span, .social-links a:hover span { transform: translate(3px, -3px); }
+  .back-to-top:hover { transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .hero::before, .project-card:hover, .awards-grid article:hover, .at-a-glance:hover,
+  .skills-grid article:hover .skill-icon, .glance-item:hover .glance-icon,
+  .button:hover, .button:hover span, .social-links a:hover span, .back-to-top:hover { transform: none; }
+  .availability > span::after { display: none; }
+}
