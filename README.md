@@ -1,6 +1,6 @@
 # Tarun Karnati — Portfolio
 
-An interactive, profile-first portfolio with a static frontend and optional Node.js retrieval backend.
+A readable single-page portfolio with a static frontend and optional Node.js retrieval backend.
 
 ## Local preview
 
@@ -15,14 +15,14 @@ Copy `.env.example` to `.env` to configure `PORT` or an optional `OPENAI_API_KEY
 
 ## Project content
 
-- `index.html`: profile, visible project cards, experience, education, awards, and embedded project data.
-- `portfolio.css`: responsive themes, animation, and component styling.
-- `portfolio.js`: featured architecture, filters, keyboard search, case studies, and project comparison.
+- `index.html`: profile, skills, 17 visible project descriptions, inline implementation details, experience, education, awards, and contact links.
+- `portfolio.css`: responsive layout, readable typography, and light/dark colour themes.
+- `portfolio.js`: category filters, project search, theme switching, mobile navigation, and active navigation links.
 - `projects.json`: documented project inventory and public links.
 - `tarunData.json`: chatbot knowledge, including project scope and status.
 - `tarunEmbeddings.json`: generated retrieval vectors.
 
-Keep the cards, embedded project data, inventory, and optional chatbot knowledge in sync when editing project content. Architecture descriptions are maintained in `portfolio.js`. Regenerate vectors after editing the knowledge:
+Keep the HTML project cards, inventory, and optional chatbot knowledge in sync when editing project content. Core information is available without dialogs or JavaScript. Regenerate vectors after editing the knowledge:
 
 ```sh
 npm run generate-embeddings

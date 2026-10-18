@@ -1,73 +1,93 @@
 'use strict';
-const projects=JSON.parse(document.getElementById('project-data').textContent);
-const $=(selector,root=document)=>root.querySelector(selector);
-const $$=(selector,root=document)=>[...root.querySelectorAll(selector)];
-const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const motion=!matchMedia('(prefers-reduced-motion: reduce)').matches;
-const dialogs=$$('dialog');let previousOverflow='',category='All',currentFeature=0,activeProject=0,toastTimer;
-const comparison=new Set();
-function toast(text){clearTimeout(toastTimer);$('.toast').textContent=text;$('.toast').classList.add('show');toastTimer=setTimeout(()=>$('.toast').classList.remove('show'),2500);}
-function theme(value){document.documentElement.dataset.theme=value;$('.theme-button').setAttribute('aria-label',value==='dark'?'Switch to light theme':'Switch to dark theme');try{localStorage.setItem('tarun-theme',value);}catch{}}
-let initialTheme='dark';try{initialTheme=localStorage.getItem('tarun-theme')||'dark';}catch{}theme(initialTheme==='light'?'light':'dark');
-$('.theme-button').addEventListener('click',()=>theme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
-$('#year').textContent=new Date().getFullYear();
-function closeMenu(){$('.mobile-nav').hidden=true;$('.menu-button').setAttribute('aria-expanded','false');}
-$('.menu-button').addEventListener('click',()=>{const open=$('.mobile-nav').hidden;$('.mobile-nav').hidden=!open;$('.menu-button').setAttribute('aria-expanded',String(open));});
-$$('.mobile-nav a').forEach(a=>a.addEventListener('click',closeMenu));
-function showDialog(dialog){if(!dialogs.some(d=>d.open))previousOverflow=document.body.style.overflow;dialogs.forEach(d=>{if(d!==dialog&&d.open)d.close();});document.body.style.overflow='hidden';if(!dialog.open)dialog.showModal();dialog.scrollTop=0;}
-dialogs.forEach(d=>{d.addEventListener('close',()=>{if(!dialogs.some(x=>x.open))document.body.style.overflow=previousOverflow;});d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();});});
-$$('.close-dialog').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
-$('#quick-profile').addEventListener('click',()=>showDialog($('#profile-dialog')));
-function filterProjects(){const query=$('#project-search').value.trim().toLowerCase();let count=0;$$('.project-card').forEach(card=>{const p=projects[Number(card.dataset.id)];card.hidden=!((category==='All'||category===p.category)&&`${p.name} ${p.category} ${p.description} ${p.stack.join(' ')}`.toLowerCase().includes(query));if(!card.hidden)count++;});$('#project-count').textContent=count===17?'Showing all 17 projects':`Showing ${count} of 17 projects`;$('.empty-state').hidden=count!==0;$$('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===category)));}
-$$('[data-filter]').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.filter;filterProjects();}));
-$('#project-search').addEventListener('input',filterProjects);
-$('#reset-filters').addEventListener('click',()=>{category='All';$('#project-search').value='';filterProjects();});
-$$('[data-tech]').forEach(b=>b.addEventListener('click',()=>{category='All';$('#project-search').value=b.dataset.tech;filterProjects();$('#work').scrollIntoView({behavior:motion?'smooth':'auto'});}));
-function updateComparison(){const count=comparison.size;$('.compare-dock').hidden=count===0;$('#compare-count').textContent=`${count} ${count===1?'project':'projects'} selected`;$('#open-comparison').disabled=count<2;$('#open-comparison').setAttribute('aria-label',count<2?'Select one more project to compare':'Compare selected projects');$$('[data-compare]').forEach(b=>{const selected=comparison.has(Number(b.dataset.compare));b.setAttribute('aria-pressed',String(selected));b.textContent=selected?'✓':'＋';});if($('#project-dialog').open){const b=$('.case-compare');if(b){b.setAttribute('aria-pressed',String(comparison.has(activeProject)));b.textContent=comparison.has(activeProject)?'✓ Selected':'＋ Compare';}}}
-function toggleComparison(id){if(comparison.has(id))comparison.delete(id);else if(comparison.size<3)comparison.add(id);else return toast('You can compare up to three projects. Remove one first.');updateComparison();if(comparison.size===1)toast('Select another project to compare side by side.');}
-$$('[data-compare]').forEach(b=>b.addEventListener('click',()=>toggleComparison(Number(b.dataset.compare))));
-$('#clear-comparison').addEventListener('click',()=>{comparison.clear();updateComparison();});
-const flows = [
- [['School inputs','School documents, calendars, menus, and orders provide the information the assistant can access.'],['Find context','Documents are extracted, chunked, embedded, retrieved, and semantically reranked. Context is scoped by role, school, and user.'],['Answer & act','Gemini streams grounded answers and uses application tools to retrieve school information or submit a lunch order.']],
- [['A scenario','A demo scenario introduces an equipment, ingredient, or recipe problem. Factory telemetry is simulated.'],['Specialist crew','An orchestrator routes the scenario to selected specialists, who analyse their areas in parallel.'],['One recommendation','The orchestrator synthesises outputs, streams updates to the dashboard, and can send a Telegram alert.']],
- [['Your need','A request, broken-part photo, or reference setup supplies the goal and constraints.'],['Discover & quote','The system finds products, inspects merchant evidence, and retrieves a live quote.'],['Approval gate','Real-money purchase execution is disabled. Only the separate sandbox checkout can proceed after explicit consent and fresh server checks.']],
- [['Ask in Slack','A developer asks about an endpoint, service, or dependency in a direct message.'],['Retrieve & trace','Hybrid dense/BM25 search, fusion, and reranking retrieve documents. Dependency metadata helps answer impact questions.'],['Cited answer','The answer is grounded in OpenAPI specifications and documentation. The demonstration uses synthetic services.']],
- [['Gather listings','Adapters collect job listings from Greenhouse, Lever, and Ashby.'],['Filter & rank','Stable IDs remove duplicates; practical rules filter before Claude scoring.'],['Read the digest','Ranked jobs are stored in Firestore and printed locally. Applications are not automatically submitted.']],
- [['Drug records','Medication information and interaction data supply the starting records.'],['Graph relationships','Neo4j represents relationships; PostgreSQL and GraphQL support the web application.'],['Explore','A web interface exposes medication connections and AI explanations. The academic application is not clinically validated.']],
- [['Upload','The API validates image type and size before requesting an inspection.'],['Analyse quality','A Python/OpenCV service calculates brightness, contrast, and blur. Inference providers are configurable.'],['Store & return','EF Core and SQLite retain inspection metadata. The API returns structured results; no trained defect model is claimed.']],
- [['Recent context','Hot memory retains full recent conversation turns.'],['Compress','Older turns are summarised with Haiku into warm memory when token budgets are approached.'],['Archive & observe','Raw turns are archived, while a file-based state exchange supports a Streamlit dashboard. Semantic archive retrieval is a roadmap item.']],
- [['Audio clip','RAVDESS and TESS clips are standardised and converted to MFCCs or Mel-spectrograms.'],['Three models','ANN, CNN, and CNN–Transformer architectures learn from the audio representations.'],['Ensemble','Averaged probabilities produce an emotion prediction. The reported clip-level test accuracy is 92.3%; speaker-disjoint evaluation is not established.']],
- [['Vision model','An object-detection model provides the starting computer-vision workload.'],['Export & optimise','PyTorch models are exported through ONNX and optimised with TensorRT FP16.'],['Edge inference','The pipeline explores inference on Jetson Orin Nano with OpenCV and a lightweight Flask interface.']],
- [['Track','Users record subscriptions, recurring costs, and usage.'],['Understand','Analytics calculate monthly spending and cost per use.'],['Act on insights','An AI advisor suggests alternatives and underused subscriptions. A Telegram bot supports tracking and reminders.']],
- [['Hypothetical profile','The challenge uses a hypothetical driver profile, not a request to purchase insurance.'],['Policy gate','Proposed browser actions pass a deterministic policy engine. Blocked and unresolved steps are preserved.'],['Evidence','Timestamped, redacted observations become comparable records. No real insurer returned a price in this build; price examples are sandbox data.']],
- [['Website content','The CLI fetches HTML and extracts page structure, metadata, schema, and content.'],['Audit','Rule-based SEO and AEO checks identify content and structure gaps.'],['Report','Claude can simulate brand perception from the content; Markdown and JSON reports present prioritised recommendations.']],
- [['Prompt','A natural-language request describes the desired web application.'],['Generate & deploy','An orchestrated workflow generates files, pushes to GitHub, and deploys through Railway.'],['Validate & repair','Playwright validates the result. A failed build can trigger one AI repair attempt.']],
- [['Browse offers','Static pages organise deals by audience and category.'],['Profile','Registration and login connect the frontend to a separate local backend.'],['Personalise','Offer pages use profile information to show relevant deals. The public frontend alone is not a hosted full-stack service.']],
- [['Plan a trip','A visitor enters travel preferences or explores Alberta’s themes.'],['AI & integrations','An Express API integrates language models, speech, weather, and local events.'],['Explore & save','A React interface presents plans and 3D content; authenticated accounts can save itineraries in MongoDB.']],
- [['Review text','Product-review text supplies material for sentiment classification.'],['Classical models','Logistic Regression and Naive Bayes classify review sentiment.'],['Research output','The co-authored study was published in IJCRT, volume 12, issue 5, May 2024.']]
-];
-const featureInfo=[
-{label:'SPONSOR-SUPPORTED CAPSTONE · USED BY REAL PEOPLE',description:'A school platform that connects parents, teachers, documents, events, and lunch orders through a grounded AI assistant.',nodes:['Documents','Retrieval + AI','School portal'],symbols:['◫','✳','↗'],explanations:['School documents and live application context provide the information the assistant can access.','Embeddings, retrieval, and semantic reranking ground the assistant’s answers in school information.','Parents and teachers access information, menus, and orders through a shared portal.']},
-{label:'SECOND PLACE · TMLS × FGF BRANDS 2026',description:'An AI command center for bakery operations. Specialist agents analyse equipment, supply-chain, and recipe scenarios.',nodes:['Scenario','Agent crew','Recommendation'],symbols:['↯','✳','≡'],explanations:['A demo scenario introduces an equipment, ingredient, or recipe problem. Factory data is simulated.','An orchestrator selects specialists, runs their analyses in parallel, then synthesises the outputs.','Recommendations stream to a dashboard, with Telegram alerts and context-aware follow-up.']},
-{label:'TRACK 1 WINNER · AGNIC.AI 2026',description:'An evidence-first commerce assistant that discovers products, inspects merchants, and gets live quotes before an approval gate.',nodes:['Your need','Find + quote','Approval gate'],symbols:['◎','⌕','▣'],explanations:['A product request, broken-part photo, or reference setup supplies the goal and constraints.','The system searches products, inspects merchant evidence, and retrieves a live checkout quote.','Real-money purchasing is disabled. A separate sandbox checkout demonstrates approval and provider verification.']}
-];
-function selectSystemNode(index){$$('[data-node]').forEach(b=>{const active=Number(b.dataset.node)===index;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});$('#system-explanation').textContent=featureInfo[currentFeature].explanations[index];$('.system-caption>.mono').textContent=`0${index+1} /`;}
-function selectFeature(id){currentFeature=id;const p=projects[id],f=featureInfo[id];$$('[data-feature]').forEach(b=>{const selected=Number(b.dataset.feature)===id;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;});$('#feature-content').setAttribute('aria-labelledby','feature-tab-'+id);$('.feature-index').textContent=`0${id+1} / 03`;$('.feature-label').textContent=f.label;$('#feature-name').textContent=p.name;$('#feature-description').textContent=f.description;$$('[data-node]').forEach((b,i)=>{b.querySelector('.node-symbol').textContent=f.symbols[i];b.querySelector('strong').textContent=f.nodes[i];});$('.system-visual').setAttribute('aria-label',`Interactive architecture of ${p.name}`);$('#feature-tags').innerHTML=p.stack.slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('');selectSystemNode(0);$('#feature-content').classList.remove('feature-fade');requestAnimationFrame(()=>$('#feature-content').classList.add('feature-fade'));}
-const featureTabs=$$('[data-feature]');featureTabs.forEach((b,i)=>{b.addEventListener('click',()=>selectFeature(Number(b.dataset.feature)));b.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const index=e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:-1)+3)%3;selectFeature(index);featureTabs[index].focus();}});});
-$$('[data-node]').forEach(b=>b.addEventListener('click',()=>selectSystemNode(Number(b.dataset.node))));
-$('[data-feature-case]').addEventListener('click',()=>openProject(currentFeature));
-function projectLinks(p){return `${p.repo?`<a class="button primary" href="${esc(p.repo)}" target="_blank" rel="noopener noreferrer">Source code ↗</a>`:''}${p.demo?`<a class="button secondary" href="${esc(p.demo)}" target="_blank" rel="noopener noreferrer">${p.category==='Research'?'Read the paper':'Visit demo'} ↗</a>`:''}`;}
-function openProject(id){if(!projects[id])return;activeProject=id;const p=projects[id];$('#project-dialog-content').innerHTML=`<div class="case-header"><div class="case-top"><p class="eyebrow">${String(id+1).padStart(2,'0')} / ${esc(p.category)}</p><button class="case-compare" aria-pressed="${comparison.has(id)}">${comparison.has(id)?'✓ Selected':'＋ Compare'}</button></div><h2>${esc(p.name)}</h2><p>${esc(p.description)}</p><div class="case-tags">${p.stack.map(t=>`<span>${esc(t)}</span>`).join('')}</div></div><div class="case-content"><div class="case-tabs" role="tablist" aria-label="Project sections"><button role="tab" id="overview-tab" aria-selected="true" aria-controls="case-overview" data-case-tab="overview">Project details</button><button role="tab" id="architecture-tab" aria-selected="false" aria-controls="case-architecture" tabindex="-1" data-case-tab="architecture">Explore the architecture ↗</button></div><section id="case-overview" role="tabpanel" aria-labelledby="overview-tab"><ul class="case-facts">${p.details.map(d=>`<li>${esc(d)}</li>`).join('')}</ul><p class="case-scope">SCOPE / ${esc(p.status)}. The architecture below is an interactive explanation of this project.</p><div class="case-links">${projectLinks(p)}</div></section><section id="case-architecture" role="tabpanel" aria-labelledby="architecture-tab" hidden><p class="architecture-label">SELECT A STEP TO EXPLORE THE FLOW</p><div class="architecture-steps">${flows[id].map((step,i)=>`<button class="${i===0?'active':''}" data-flow-step="${i}" aria-pressed="${i===0}"><span>0${i+1}</span>${esc(step[0])}</button>`).join('')}</div><div class="architecture-explanation"><h4>${esc(flows[id][0][0])}</h4><p>${esc(flows[id][0][1])}</p></div></section></div><div class="case-footer"><button id="previous-project" ${id===0?'disabled':''}>← Previous project</button><span>${id+1} / 17</span><button id="next-project" ${id===16?'disabled':''}>Next project →</button></div>`;
-$('.case-compare').addEventListener('click',()=>toggleComparison(id));const tabs=$$('[data-case-tab]');function selectTab(tab){tabs.forEach(b=>{const active=b===tab;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});$('#case-overview').hidden=tab.dataset.caseTab!=='overview';$('#case-architecture').hidden=tab.dataset.caseTab!=='architecture';}tabs.forEach((b,i)=>{b.addEventListener('click',()=>selectTab(b));b.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const other=e.key==='Home'?tabs[0]:e.key==='End'?tabs[1]:tabs[1-i];selectTab(other);other.focus();}});});
-$$('[data-flow-step]').forEach(b=>b.addEventListener('click',()=>{const step=flows[id][Number(b.dataset.flowStep)];$$('[data-flow-step]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));});$('.architecture-explanation').innerHTML=`<h4>${esc(step[0])}</h4><p>${esc(step[1])}</p>`;$('.architecture-explanation').classList.remove('animate');requestAnimationFrame(()=>$('.architecture-explanation').classList.add('animate'));}));
-$('#previous-project').addEventListener('click',()=>openProject(id-1));$('#next-project').addEventListener('click',()=>openProject(id+1));$('#project-dialog').setAttribute('aria-label',p.name+' case study');showDialog($('#project-dialog'));}
-$$('[data-open]').forEach(b=>b.addEventListener('click',()=>openProject(Number(b.dataset.open))));
-$('#open-comparison').addEventListener('click',()=>{if(comparison.size<2)return;$('#comparison-content').style.gridTemplateColumns=`repeat(${comparison.size},minmax(0,1fr))`;$('#comparison-content').innerHTML=[...comparison].map(id=>{const p=projects[id];return `<section class="comparison-column"><p class="eyebrow">${esc(p.category)}</p><h2>${esc(p.name)}</h2><p class="compare-status">${esc(p.status)}</p><h3>PURPOSE</h3><p>${esc(p.description)}</p><h3>STACK</h3><div class="case-tags">${p.stack.map(t=>`<span>${esc(t)}</span>`).join('')}</div><h3>IMPLEMENTATION & SCOPE</h3><p>${p.details.map(esc).join('<br><br>')}</p><button data-compare-case="${id}" class="comparison-action">Open full case study ↗</button></section>`;}).join('');$$('[data-compare-case]').forEach(b=>b.addEventListener('click',()=>openProject(Number(b.dataset.compareCase))));showDialog($('#compare-dialog'));});
-function renderCommands(){const query=$('#command-search').value.toLowerCase().trim();const results=projects.map((p,id)=>({p,id})).filter(({p})=>`${p.name} ${p.category} ${p.stack.join(' ')}`.toLowerCase().includes(query));$('#command-results').innerHTML=results.map(({p,id})=>`<button class="command-result" data-result="${id}"><span>${String(id+1).padStart(2,'0')}</span><div><strong>${esc(p.name)}</strong><small>${esc(p.category)}</small></div><span>↵</span></button>`).join('')||'<p class="command-empty">No projects match. Try another name or technology.</p>';$$('[data-result]').forEach(b=>b.addEventListener('click',()=>openProject(Number(b.dataset.result))));}
-function openCommands(){closeMenu();$('#command-search').value='';renderCommands();showDialog($('#command-dialog'));$('#command-search').focus();}
-$$('[data-command]').forEach(b=>b.addEventListener('click',openCommands));$('#command-search').addEventListener('input',renderCommands);$('#command-search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('.command-result')?.click();}if(e.key==='ArrowDown'){e.preventDefault();$('.command-result')?.focus();}});$('#command-results').addEventListener('keydown',e=>{if(['ArrowDown','ArrowUp'].includes(e.key)){e.preventDefault();const buttons=$$('.command-result');const i=buttons.indexOf(document.activeElement);buttons[(i+(e.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length]?.focus();}});
-document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openCommands();}if(e.key==='Escape')closeMenu();});
-if(motion){document.body.classList.add('motion');$$('.project-card').forEach((card,i)=>{card.style.animationDelay=`${(i%3)*65}ms`;let queued=false;card.addEventListener('pointermove',event=>{if(queued)return;queued=true;requestAnimationFrame(()=>{const r=card.getBoundingClientRect();card.style.setProperty('--mx',`${event.clientX-r.left}px`);card.style.setProperty('--my',`${event.clientY-r.top}px`);queued=false;});});});}
-if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)$$('.site-header nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));}),{rootMargin:'-20% 0px -50% 0px'});['work','experience','about'].forEach(id=>observer.observe($('#'+id)));}
-let scrollQueued=false;window.addEventListener('scroll',()=>{if(scrollQueued)return;scrollQueued=true;requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-innerHeight;$('.scroll-progress').style.transform=`scaleX(${max?scrollY/max:0})`;scrollQueued=false;});},{passive:true});
-filterProjects();updateComparison();
+
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
+const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let activeCategory = 'All';
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  const dark = theme === 'dark';
+  $('.theme-toggle').setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  try { localStorage.setItem('tarun-readable-theme', theme); } catch {}
+}
+
+let initialTheme = 'light';
+try { initialTheme = localStorage.getItem('tarun-readable-theme') || 'light'; } catch {}
+applyTheme(initialTheme === 'dark' ? 'dark' : 'light');
+$('.theme-toggle').addEventListener('click', () => {
+  applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+});
+
+function closeNavigation() {
+  $('#mobile-nav').hidden = true;
+  $('.menu-toggle').setAttribute('aria-expanded', 'false');
+}
+
+$('.menu-toggle').addEventListener('click', () => {
+  const open = $('#mobile-nav').hidden;
+  $('#mobile-nav').hidden = !open;
+  $('.menu-toggle').setAttribute('aria-expanded', String(open));
+});
+$$('#mobile-nav a').forEach(link => link.addEventListener('click', closeNavigation));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !$('#mobile-nav').hidden) {
+    closeNavigation();
+    $('.menu-toggle').focus();
+  }
+});
+
+function filterProjects(animate = false) {
+  const query = $('#project-search').value.trim().toLowerCase();
+  let count = 0;
+  $$('.project-card').forEach(card => {
+    const matches = (activeCategory === 'All' || card.dataset.category === activeCategory)
+      && card.textContent.toLowerCase().includes(query);
+    card.hidden = !matches;
+    card.classList.remove('filter-enter');
+    if (matches) {
+      count++;
+      if (animate && !prefersReducedMotion) {
+        requestAnimationFrame(() => card.classList.add('filter-enter'));
+      }
+    }
+  });
+  $('.project-count').textContent = count === 17 ? 'Showing all 17 projects' : `Showing ${count} of 17 projects`;
+  $('.empty-state').hidden = count !== 0;
+  $$('[data-filter]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.filter === activeCategory));
+  });
+}
+
+$$('[data-filter]').forEach(button => button.addEventListener('click', () => {
+  activeCategory = button.dataset.filter;
+  filterProjects(true);
+}));
+$('#project-search').addEventListener('input', () => filterProjects());
+$('#reset-filters').addEventListener('click', () => {
+  activeCategory = 'All';
+  $('#project-search').value = '';
+  filterProjects(true);
+});
+
+// Project links always reveal their destination, even when a filter is active.
+$$('a[href^="#project-"]').forEach(link => link.addEventListener('click', () => {
+  activeCategory = 'All';
+  $('#project-search').value = '';
+  filterProjects();
+}));
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      $$('.header-inner nav a').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      });
+    });
+  }, { rootMargin: '-15% 0px -65% 0px' });
+  ['about', 'skills', 'projects', 'experience', 'contact'].forEach(id => observer.observe($(`#${id}`)));
+}
+
+$('#year').textContent = new Date().getFullYear();
+filterProjects();
