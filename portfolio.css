@@ -1,32 +1,40 @@
 :root {
   color-scheme: light;
-  --page: #fcfbf8;
+  --page: #fffaf5;
   --surface: #ffffff;
-  --tint: #f1f5f3;
-  --text: #192d40;
-  --body: #46596a;
-  --muted: #5d6d78;
-  --line: #dce5e1;
-  --accent: #087567;
-  --accent-soft: #e4f1eb;
-  --warm: #a96620;
-  --warm-soft: #fbefd9;
-  --shadow: 0 12px 36px rgba(25, 45, 64, .055);
+  --tint: #f5eff8;
+  --text: #36233f;
+  --body: #594a61;
+  --muted: #706276;
+  --line: #e7dfe9;
+  --accent: #b54635;
+  --accent-soft: #fff0e8;
+  --warm: #8a5d1d;
+  --warm-soft: #fff1d3;
+  --lavender: #f1e9f8;
+  --mint: #e9f4ee;
+  --sky: #eaf2fc;
+  --peach: #fff0e6;
+  --shadow: 0 12px 36px rgba(62, 35, 75, .065);
 }
 html[data-theme="dark"] {
   color-scheme: dark;
-  --page: #14212a;
-  --surface: #1b2c37;
-  --tint: #172832;
-  --text: #f0f5f3;
-  --body: #c4d1d4;
-  --muted: #acbdc3;
-  --line: #344b54;
-  --accent: #92d9c5;
-  --accent-soft: #25473f;
-  --warm: #f2ce94;
-  --warm-soft: #473c2a;
-  --shadow: 0 12px 36px rgba(0, 0, 0, .1);
+  --page: #211a28;
+  --surface: #2d2335;
+  --tint: #291f33;
+  --text: #faf0f6;
+  --body: #ddcedf;
+  --muted: #c1aec5;
+  --line: #4b3b54;
+  --accent: #ffb49b;
+  --accent-soft: #4a302e;
+  --warm: #f4d095;
+  --warm-soft: #463624;
+  --lavender: #382940;
+  --mint: #263d36;
+  --sky: #29364b;
+  --peach: #44302b;
+  --shadow: 0 12px 36px rgba(0, 0, 0, .12);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 104px; }
@@ -70,7 +78,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 24px; font-size: 15px; font-weight: 600; border: 1px solid var(--line); border-radius: 7px; padding: 13px 19px; transition: transform .18s, box-shadow .18s; line-height: 1.5; }
 .button:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-html[data-theme="dark"] .button.primary { color: #14212a; }
+html[data-theme="dark"] .button.primary { color: #281d32; }
 .button.secondary { background: var(--surface); }
 .social-links { display: flex; gap: 28px; margin-top: 21px; font-size: 15px; color: var(--body); }
 .social-links a:hover { color: var(--accent); }
@@ -299,3 +307,60 @@ html[data-theme="dark"] .button.primary { color: #14212a; }
   .highlights { order: 1; }
   .at-a-glance { order: 2; margin-bottom: 28px; }
 }
+
+/* Colour accents preserve the established layout and type sizes. */
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 4% 20%, color-mix(in srgb, var(--peach) 85%, transparent), transparent 56%);
+}
+.at-a-glance { background: var(--lavender); border-color: color-mix(in srgb, var(--text) 14%, var(--lavender)); border-top: 5px solid #80509d; }
+.at-a-glance > h2 { border-color: color-mix(in srgb, var(--text) 14%, transparent); }
+.glance-item:nth-of-type(1) .glance-icon { background: var(--surface); color: #70429a; }
+.glance-item:nth-of-type(2) .glance-icon { background: var(--surface); color: #176d62; }
+.glance-item:nth-of-type(3) .glance-icon { background: var(--surface); color: #b04436; }
+.highlights > div:nth-child(1) strong { color: #70429a; }
+.highlights > div:nth-child(2) strong { color: #b54635; }
+.highlights > div:nth-child(3) strong { color: #176d62; }
+#projects { background: color-mix(in srgb, var(--peach) 55%, var(--page)); }
+#awards { background: color-mix(in srgb, var(--mint) 68%, var(--page)); }
+.skills-grid article:nth-child(1), .skills-grid article:nth-child(6) { background: color-mix(in srgb, var(--lavender) 55%, var(--surface)); }
+.skills-grid article:nth-child(2), .skills-grid article:nth-child(4) { background: color-mix(in srgb, var(--mint) 55%, var(--surface)); }
+.skills-grid article:nth-child(3) { background: color-mix(in srgb, var(--peach) 65%, var(--surface)); }
+.skills-grid article:nth-child(5) { background: color-mix(in srgb, var(--sky) 65%, var(--surface)); }
+.skills-grid .skill-icon { background: var(--surface); }
+.project-card { --project-accent: #70429a; --project-soft: #f1e7f8; border-top: 3px solid var(--project-accent); }
+.project-card[data-category="Full-stack"] { --project-accent: #176d62; --project-soft: #e5f4ed; }
+.project-card[data-category="AI & agents"] { --project-accent: #70429a; --project-soft: #f1e7f8; }
+.project-card[data-category="ML & vision"] { --project-accent: #2c5e98; --project-soft: #e8f1fc; }
+.project-card[data-category="Automation"] { --project-accent: #b04436; --project-soft: #fff0e9; }
+.project-card[data-category="Research"] { --project-accent: #8b6116; --project-soft: #fff4d8; }
+.project-card .category { color: var(--project-accent); background: var(--project-soft); }
+.project-number { color: var(--project-accent); }
+.project-card:hover { border-color: var(--project-accent); }
+.awards-grid article:nth-child(1) { background: var(--peach); }
+.awards-grid article:nth-child(2) { background: var(--lavender); }
+.awards-grid article:nth-child(3) { background: var(--sky); }
+.awards-grid article:nth-child(4) { background: var(--surface); }
+.experience-card { border-left: 4px solid #80509d; }
+.education-grid article:nth-child(1) { border-top-color: #80509d; }
+.education-grid article:nth-child(2) { border-top-color: #176d62; }
+.contact-section { background: #3c234d; color: #fff7ed; border-top-color: #3c234d; }
+.contact-section .eyebrow { color: #ffb99c; }
+.contact-layout p, .contact-actions > div { color: #ecdaed; }
+.contact-actions .button.primary { background: #ffb99c; color: #3c234d; border-color: #ffb99c; }
+html[data-theme="dark"] .glance-item:nth-of-type(1) .glance-icon { color: #d6b5f0; }
+html[data-theme="dark"] .glance-item:nth-of-type(2) .glance-icon { color: #a0d7c3; }
+html[data-theme="dark"] .glance-item:nth-of-type(3) .glance-icon { color: #ffb49b; }
+html[data-theme="dark"] .highlights > div:nth-child(1) strong { color: #d6b5f0; }
+html[data-theme="dark"] .highlights > div:nth-child(2) strong { color: #ffb49b; }
+html[data-theme="dark"] .highlights > div:nth-child(3) strong { color: #a0d7c3; }
+html[data-theme="dark"] .project-card[data-category="Full-stack"] { --project-accent: #a0d7c3; --project-soft: #263d36; }
+html[data-theme="dark"] .project-card[data-category="AI & agents"] { --project-accent: #d6b5f0; --project-soft: #382940; }
+html[data-theme="dark"] .project-card[data-category="ML & vision"] { --project-accent: #b7d1f7; --project-soft: #29364b; }
+html[data-theme="dark"] .project-card[data-category="Automation"] { --project-accent: #ffb49b; --project-soft: #44302b; }
+html[data-theme="dark"] .project-card[data-category="Research"] { --project-accent: #f4d095; --project-soft: #463624; }
